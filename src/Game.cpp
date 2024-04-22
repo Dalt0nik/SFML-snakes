@@ -6,6 +6,7 @@ Game::Game()
 {
 	this->initVars();
 	this->initWindow();
+    this->initEnemies();
 }
 
 Game::~Game()
@@ -50,10 +51,13 @@ void Game::render()
         - Display new frame
     */
 
+    //Clear
     this->window->clear(sf::Color::Green);
 
     //Draw
+    this->window->draw(this->enemy);
 
+    //Display
     this->window->display();
 }
 
@@ -66,7 +70,18 @@ void Game::initVars()
 
 void Game::initWindow()
 {
-	this->window = new sf::RenderWindow(sf::VideoMode(480, 480), "Snakes", sf::Style::Titlebar | sf::Style::Close);
+    this->window = new sf::RenderWindow(sf::VideoMode(480, 480), "Snakes", sf::Style::Titlebar | sf::Style::Close);
+
+    this->window->setFramerateLimit(30);
+}
+
+void Game::initEnemies()
+{
+    this->enemy.setPosition(50.f, 50.f);
+    this->enemy.setSize(sf::Vector2f(20.f, 20.f));
+    this->enemy.setFillColor(sf::Color::Yellow);
+    this->enemy.setOutlineColor(sf::Color::Black);
+    this->enemy.setOutlineThickness(1.f);
 }
 
 
