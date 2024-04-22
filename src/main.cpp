@@ -5,7 +5,7 @@
 #include <fstream>
 #include <string>
 
-#include <SFML/Graphics.hpp>
+#include "../Include/Game.h"
 
 //#include "../include/snake.h"
 //#include "../include/GameBorderException.h"
@@ -23,42 +23,17 @@
 
 int main()
 {	
-    //window setup
-    sf::RenderWindow window(sf::VideoMode(480, 480), "Snakes", sf::Style::Titlebar | sf::Style::Close);
-    sf::Event ev;
+    
+    Game game;
 
     //game loop
-    while (window.isOpen())
+    while (game.running())
     {
-        //events
-        while (window.pollEvent(ev))
-        {
-            switch (ev.type)
-            {
-                case sf::Event::Closed:
-                    window.close();
-                    break;
-
-                case sf::Event::KeyPressed:
-                    if (ev.key.code == sf::Keyboard::Escape)
-                    {
-                        window.close();
-                    }
-                    break;
-            }
-
-        }
-
         //Update
-
+        game.update();
 
         //Render
-        window.clear(); //clear old frame
-
-        //Drawing
-
-
-        window.display(); //display newly created frame
+        game.render();
 
     }
 

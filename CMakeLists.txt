@@ -14,7 +14,7 @@ include_directories(include)
 
 add_executable(Snakes
     src/main.cpp
-    src/snake.cpp)
+    src/Game.cpp)
 target_link_libraries(Snakes PRIVATE sfml-graphics)
 target_compile_features(Snakes PRIVATE cxx_std_17)
 
