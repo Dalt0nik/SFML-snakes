@@ -41,6 +41,24 @@ void Game::pollEvents()
 void Game::update()
 {
     this->pollEvents();
+
+    this->updateEnemies();
+}
+
+void Game::updateEnemies()
+{
+    //Updating timer and spawning
+    if (this->enemies.size() < this->maxEnemies)
+    {
+        if (this->enemySpawnTimer >= this->enemySpawnTimerMax) //update timer and spawn
+        {
+            this->enemySpawnTimer = 0.f;
+            this->spawnEnemy();
+        }
+        else
+            this->enemySpawnTimer += 1.f;
+
+    }
 }
 
 void Game::render()
@@ -55,10 +73,31 @@ void Game::render()
     this->window->clear(sf::Color::Green);
 
     //Draw
-    this->window->draw(this->enemy);
+    this->renderEnemies();
 
     //Display
     this->window->display();
+}
+
+void Game::renderEnemies()
+{
+    for (auto& enemy : this->enemies)
+    {
+        this->window->draw(enemy);
+    }
+}
+
+
+void Game::spawnEnemy()
+{
+    // Generate new Enemy
+    this->enemy.setPosition(
+        static_cast<float>(rand() % static_cast<int>(this->window->getSize().x - this->enemy.getSize().x)),
+        static_cast<float>(rand() % static_cast<int>(this->window->getSize().y - this->enemy.getSize().y))
+    );
+
+    // Spawn the Enemy
+    this->enemies.push_back(this->enemy);
 }
 
 // Private
@@ -66,13 +105,18 @@ void Game::render()
 void Game::initVars()
 {
 	this->window = nullptr;
+
+    this->score = 0;
+    this->enemySpawnTimer = 0.f;
+    this->enemySpawnTimerMax = 300.f;
+    this->maxEnemies = 5;
 }
 
 void Game::initWindow()
 {
     this->window = new sf::RenderWindow(sf::VideoMode(480, 480), "Snakes", sf::Style::Titlebar | sf::Style::Close);
 
-    this->window->setFramerateLimit(30);
+    this->window->setFramerateLimit(60);
 }
 
 void Game::initEnemies()

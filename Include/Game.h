@@ -2,6 +2,9 @@
 
 #include <SFML/Graphics.hpp>
 
+#include <vector>
+#include<ctime>
+
 class Game
 {
 public:
@@ -13,7 +16,12 @@ public:
 	// Public Functions
 	void pollEvents();
 	void update();
+	void updateEnemies();
+
 	void render();
+	void renderEnemies();
+
+	void spawnEnemy();
 
 	// Accessor Functions
 	const bool running() const;
@@ -26,8 +34,16 @@ private:
 	sf::RenderWindow* window;
 	sf::Event ev;
 
-	// Objects
+	// Game Logic
 
+	int score;
+	float enemySpawnTimer;
+	float enemySpawnTimerMax;
+	int maxEnemies;
+
+	// Game Objects
+
+	std::vector<sf::RectangleShape> enemies;
 	sf::RectangleShape enemy;
 
 
