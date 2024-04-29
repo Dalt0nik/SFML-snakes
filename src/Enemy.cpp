@@ -5,8 +5,18 @@
 Enemy::Enemy() : line(0), shape(sf::RectangleShape()) {}
 Enemy::Enemy(int line, sf::RectangleShape shape) : line(line), shape(shape) {}
 
-int Enemy::getLine() const {
-    return this->line;
+//indicates if enemy takes spawn in line, where 0 is none and 1-8 is number of taken line
+int Enemy::takesLine() {
+    if (this->shape.getPosition().x < 300.f)
+    {
+        std::cout << this->shape.getPosition().x << '\n';
+        return this->line;
+    }
+    else return 0;
+}
+
+void Enemy::setLine(int line) {
+    this->line = line;
 }
 
 sf::RectangleShape& Enemy::getShape(){

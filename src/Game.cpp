@@ -63,7 +63,7 @@ void Game::updateEnemies()
 
     for (int i = 0; i < this->enemies.size(); i++)
     {
-        this->enemies[i].move(5.f, 0.f);
+        this->enemies[i].move(4.f, 0.f);
 
         if (this->enemies[i].getShape().getPosition().x > this->window->getSize().x) //Deleting enemies if they are out of the screen
         {
@@ -101,17 +101,44 @@ void Game::renderEnemies()
 
 void Game::spawnEnemy()
 {
+    updateSpawnLines();
+
+    /*for(auto i : spawnlines)
+        std::cout << i << " ";
+    std::cout << '\n';*/
+
+    int line = 0;
+
+    do {
+        line = rand() % 8 + 1;
+    } while (spawnlines[line] == 1);
+
+
     // Generate new Enemy
     this->enemy.getShape().setPosition(
         0.f,
-        static_cast<float>((rand() % 8 + 1) * 50 + 10) //8 horizontal rows for snakes      
+        static_cast<float>(line * 50 + 10) //8 horizontal rows for snakes      
     );
+
+    this->enemy.setLine(line);
 
     // Spawn the Enemy
     this->enemies.push_back(this->enemy);
 }
 
 // Private
+
+void Game::updateSpawnLines()
+{
+    this->spawnlines = std::vector<int>(9, 0);
+
+    for (auto& enemy : this->enemies)
+    {
+        if (enemy.takesLine() != 0)
+            this->spawnlines[enemy.takesLine()] = 1;
+    }
+
+}
 
 void Game::initVars()
 {
@@ -121,7 +148,7 @@ void Game::initVars()
     this->enemySpawnTimer = 0.f;
     this->enemySpawnTimerMax = 15.f;
     this->maxEnemies = 15;
-    this->spawnlines = std::vector<int>(8, 0);
+    this->spawnlines = std::vector<int>(9, 0);
 }
 
 void Game::initWindow()

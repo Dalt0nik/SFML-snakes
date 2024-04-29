@@ -56,4 +56,5 @@ private:
 	void initVars();
 	void initWindow();
 	void initEnemies();
+	void updateSpawnLines();
 };

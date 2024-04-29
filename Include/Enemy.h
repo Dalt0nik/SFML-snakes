@@ -7,7 +7,8 @@ class Enemy {
 public:
     Enemy();
     Enemy(int line, sf::RectangleShape shape);
-    int getLine() const;
+    int takesLine();
+    void setLine(int line);
     sf::RectangleShape& getShape();
     void move(float x, float y);
 
