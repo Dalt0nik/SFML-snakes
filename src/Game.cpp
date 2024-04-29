@@ -95,7 +95,6 @@ void Game::renderEnemies()
     for (auto& enemy : this->enemies)
     {
         this->window->draw(enemy.getShape());
-        std::cout << "draw?\n";
     }
 }
 
