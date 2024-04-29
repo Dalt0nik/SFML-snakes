@@ -4,6 +4,7 @@
 
 #include <vector>
 #include<ctime>
+#include<Enemy.h>
 
 class Game
 {
@@ -41,10 +42,12 @@ private:
 	float enemySpawnTimerMax;
 	int maxEnemies;
 
+	std::vector<int> spawnlines;
+
 	// Game Objects
 
-	std::vector<sf::RectangleShape> enemies;
-	sf::RectangleShape enemy;
+	std::vector<Enemy> enemies;
+	Enemy enemy;
 
 
 
