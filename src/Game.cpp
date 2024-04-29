@@ -103,10 +103,6 @@ void Game::spawnEnemy()
 {
     updateSpawnLines();
 
-    /*for(auto i : spawnlines)
-        std::cout << i << " ";
-    std::cout << '\n';*/
-
     int line = 0;
 
     do {

@@ -9,7 +9,6 @@ Enemy::Enemy(int line, sf::RectangleShape shape) : line(line), shape(shape) {}
 int Enemy::takesLine() {
     if (this->shape.getPosition().x < 300.f)
     {
-        std::cout << this->shape.getPosition().x << '\n';
         return this->line;
     }
     else return 0;
