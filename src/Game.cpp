@@ -87,11 +87,28 @@ void Game::updateEnemies()
     {
         this->enemies[i].update();
 
-        if (this->enemies[i].getShape().getPosition().x > this->window->getSize().x) //Deleting enemies if they are out of the screen
+        //get enemy X position
+        float enemyPosition = this->enemies[i].getShape().getPosition().x;
+
+        if(this->enemies[i].getLine() == this->player.getLine() && this->isCollision(this->player.getShape().getPosition().x, enemyPosition))
+            this->endgame = true;
+
+        if (enemyPosition > this->window->getSize().x) //Deleting enemies if they are out of the screen
         {
             this->enemies.erase(this->enemies.begin() + i);
         }
     }
+}
+
+// returns true if player and enemy collides (consired they are in the same line)
+bool Game::isCollision(float playerX, float enemyX)
+{
+    if (playerX > enemyX && playerX < enemyX + this->enemyLength)
+        return true;
+    else if (playerX < enemyX && playerX + 50.f > enemyX)
+        return true;
+    else return false;
+
 }
 
 void Game::updateText()
@@ -185,11 +202,14 @@ void Game::initVars()
 {
 	this->window = nullptr;
 
+    this->endgame = false;
+
     this->score = 0;
     this->goingUp = false;
     this->enemySpawnTimer = 0.f;
     this->enemySpawnTimerMax = 15.f;
     this->maxEnemies = 15;
+    this->enemyLength = 160.f;
     this->spawnlines = std::vector<int>(9, 0);
 }
 
@@ -203,7 +223,7 @@ void Game::initWindow()
 void Game::initEnemies()
 {
     this->enemy.getShape().setPosition(50.f, 50.f);
-    this->enemy.getShape().setSize(sf::Vector2f(160.f, 40.f));
+    this->enemy.getShape().setSize(sf::Vector2f(this->enemyLength, 40.f));
     this->enemy.getShape().setFillColor(sf::Color::Yellow);
     this->enemy.getShape().setOutlineColor(sf::Color::Black);
     this->enemy.getShape().setOutlineThickness(1.f);
@@ -239,6 +259,6 @@ void Game::initText()
 
 const bool Game::running() const
 {
-	return this->window->isOpen();
+	return this->window->isOpen() && !this->endgame;
 }
 

@@ -26,7 +26,7 @@ public:
 
 	void spawnEnemy();
 
-	// Accessor Functions
+
 	const bool running() const;
 
 private:
@@ -39,10 +39,13 @@ private:
 
 	// Game Logic
 
+	bool endgame;
+
 	int score;
 	float enemySpawnTimer;
 	float enemySpawnTimerMax;
 	int maxEnemies;
+	float enemyLength;
 
 	bool goingUp;
 
@@ -67,6 +70,10 @@ private:
 	void initPlayer();
 	void initFont();
 	void initText();
+
 	void updateSpawnLines();
 	void updateText();
+
+
+	bool isCollision(float playerX, float enemyX);
 };

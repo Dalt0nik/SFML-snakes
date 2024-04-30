@@ -11,6 +11,8 @@ public:
 
     bool reachedOtherSide(bool up);
 
+    int getLine();
+
 
 private:
     sf::Clock jumpClock; // Timer for jump cooldown

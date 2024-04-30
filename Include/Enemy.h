@@ -12,6 +12,7 @@ public:
     void setLine(int line);
     void setSpeed(float speed);
     int takesLine();
+    int getLine();
 
 private:
     float speed;

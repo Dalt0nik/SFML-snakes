@@ -19,6 +19,11 @@ int Enemy::takesLine() {
     else return 0;
 }
 
+int Enemy::getLine() {
+
+    return this->line;
+}
+
 void Enemy::setLine(int line) {
     this->line = line;
 }
