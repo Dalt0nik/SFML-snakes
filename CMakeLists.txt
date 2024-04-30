@@ -10,11 +10,14 @@ FetchContent_Declare(SFML
     GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
 
-include_directories(include)
+include_directories(Include)
 
 add_executable(Snakes
     src/main.cpp
-    src/Game.cpp "Include/Enemy.h" "src/Enemy.cpp")
+    src/Game.cpp
+    src/Enemy.cpp
+    src/Player.cpp
+    src/Character.cpp)
 target_link_libraries(Snakes PRIVATE sfml-graphics)
 target_compile_features(Snakes PRIVATE cxx_std_17)
 

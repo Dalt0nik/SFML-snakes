@@ -63,7 +63,7 @@ void Game::updateEnemies()
 
     for (int i = 0; i < this->enemies.size(); i++)
     {
-        this->enemies[i].move(4.f, 0.f);
+        this->enemies[i].update();
 
         if (this->enemies[i].getShape().getPosition().x > this->window->getSize().x) //Deleting enemies if they are out of the screen
         {
@@ -117,6 +117,7 @@ void Game::spawnEnemy()
     );
 
     this->enemy.setLine(line);
+    
 
     // Spawn the Enemy
     this->enemies.push_back(this->enemy);
@@ -161,6 +162,7 @@ void Game::initEnemies()
     this->enemy.getShape().setFillColor(sf::Color::Yellow);
     this->enemy.getShape().setOutlineColor(sf::Color::Black);
     this->enemy.getShape().setOutlineThickness(1.f);
+    this->enemy.setSpeed(4.f);
 }
 
 

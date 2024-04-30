@@ -1,20 +1,19 @@
-#ifndef ENEMY_H
-#define ENEMY_H
+//#pragma once
+//
+#pragma once
+#include "Character.h"
 
-#include <SFML/Graphics.hpp>
-
-class Enemy {
+class Enemy : public Character {
 public:
     Enemy();
-    Enemy(int line, sf::RectangleShape shape);
-    int takesLine();
+    Enemy(int line,int speed, sf::RectangleShape shape);
+
+    void update() override;
     void setLine(int line);
-    sf::RectangleShape& getShape();
-    void move(float x, float y);
+    void setSpeed(float speed);
+    int takesLine();
 
 private:
+    float speed;
     int line;
-    sf::RectangleShape shape;
 };
-
-#endif // ENEMY_H

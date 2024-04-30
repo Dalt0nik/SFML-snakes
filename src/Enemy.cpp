@@ -2,8 +2,13 @@
 #include <iostream>
 
 //Enemy constructors
-Enemy::Enemy() : line(0), shape(sf::RectangleShape()) {}
-Enemy::Enemy(int line, sf::RectangleShape shape) : line(line), shape(shape) {}
+
+Enemy::Enemy() : Character() {}
+Enemy::Enemy(int line, int speed, sf::RectangleShape shape) : Character() {
+    this->line = line;
+    this->speed = speed;
+    this->shape = shape;
+}
 
 //indicates if enemy takes spawn in line, where 0 is none and 1-8 is number of taken line
 int Enemy::takesLine() {
@@ -18,10 +23,12 @@ void Enemy::setLine(int line) {
     this->line = line;
 }
 
-sf::RectangleShape& Enemy::getShape(){
-    return this->shape;
+void Enemy::setSpeed(float speed) {
+    this->speed = speed;
 }
 
-void Enemy::move(float x, float y) {
-    this->shape.move(x, y);
+void Enemy::update() {
+
+    this->move(this->speed, 0.f);
+
 }
