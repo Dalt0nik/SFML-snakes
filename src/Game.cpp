@@ -119,7 +119,7 @@ void Game::spawnEnemy()
     // Generate new Enemy
     this->enemy.getShape().setPosition(
         -160.f,
-        static_cast<float>(line * 50 + 10) //8 horizontal rows for snakes      
+        static_cast<float>(line * 50 + 5) //8 horizontal rows for snakes      
     );
 
     this->enemy.setLine(line);
@@ -173,7 +173,7 @@ void Game::initEnemies()
 
 void Game::initPlayer()
 {
-    this->player.getShape().setPosition(0.f, 10.f);
+    this->player.getShape().setPosition(5.f, 5.f);
     this->player.getShape().setSize(sf::Vector2f(40.f, 40.f));
     this->player.getShape().setFillColor(sf::Color::Red);
     this->player.getShape().setOutlineColor(sf::Color::Black);

@@ -11,5 +11,6 @@ public:
 
 
 private:
-    // Player-specific members
+    sf::Clock jumpClock; // Timer for jump cooldown
+    const sf::Time jumpCooldown = sf::seconds(0.15); // Cooldown period
 };
