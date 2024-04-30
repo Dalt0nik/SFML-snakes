@@ -7,6 +7,7 @@ public:
     Player(sf::RectangleShape shape);
 
     void update() override;
+    void updateInput();
 
 
 private:

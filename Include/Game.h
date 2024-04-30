@@ -5,6 +5,7 @@
 #include <vector>
 #include<ctime>
 #include<Enemy.h>
+#include<Player.h>
 
 class Game
 {
@@ -20,7 +21,7 @@ public:
 	void updateEnemies();
 
 	void render();
-	void renderEnemies();
+	void renderCharacters();
 
 	void spawnEnemy();
 
@@ -48,6 +49,7 @@ private:
 
 	std::vector<Enemy> enemies;
 	Enemy enemy;
+	Player player;
 
 
 
@@ -56,5 +58,6 @@ private:
 	void initVars();
 	void initWindow();
 	void initEnemies();
+	void initPlayer();
 	void updateSpawnLines();
 };

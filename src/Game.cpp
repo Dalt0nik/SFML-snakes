@@ -7,6 +7,7 @@ Game::Game()
 {
 	this->initVars();
 	this->initWindow();
+    this->initPlayer();
     this->initEnemies();
 }
 
@@ -42,6 +43,8 @@ void Game::pollEvents()
 void Game::update()
 {
     this->pollEvents();
+
+    this->player.update();
 
     this->updateEnemies();
 }
@@ -84,18 +87,21 @@ void Game::render()
     this->window->clear(sf::Color::Green);
 
     //Draw
-    this->renderEnemies();
+    this->renderCharacters();
 
     //Display
     this->window->display();
 }
 
-void Game::renderEnemies()
+void Game::renderCharacters()
 {
     for (auto& enemy : this->enemies)
     {
         this->window->draw(enemy.getShape());
     }
+
+    this->window->draw(this->player.getShape());
+
 }
 
 
@@ -112,7 +118,7 @@ void Game::spawnEnemy()
 
     // Generate new Enemy
     this->enemy.getShape().setPosition(
-        0.f,
+        -160.f,
         static_cast<float>(line * 50 + 10) //8 horizontal rows for snakes      
     );
 
@@ -163,6 +169,15 @@ void Game::initEnemies()
     this->enemy.getShape().setOutlineColor(sf::Color::Black);
     this->enemy.getShape().setOutlineThickness(1.f);
     this->enemy.setSpeed(4.f);
+}
+
+void Game::initPlayer()
+{
+    this->player.getShape().setPosition(0.f, 10.f);
+    this->player.getShape().setSize(sf::Vector2f(40.f, 40.f));
+    this->player.getShape().setFillColor(sf::Color::Red);
+    this->player.getShape().setOutlineColor(sf::Color::Black);
+    this->player.getShape().setOutlineThickness(1.f);
 }
 
 
