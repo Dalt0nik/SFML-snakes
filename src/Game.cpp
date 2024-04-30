@@ -6,7 +6,12 @@
 Game::Game()
 {
 	this->initVars();
+
 	this->initWindow();
+
+    this->initFont();
+    this->initText();
+
     this->initPlayer();
     this->initEnemies();
 }
@@ -46,6 +51,20 @@ void Game::update()
 
     this->player.update();
 
+    if (this->player.reachedOtherSide(this->goingUp))
+    {
+        /*
+        If player reached other side:
+        1. increase score
+        2. change direction
+        3. update text on the screen
+        */
+
+        this->score++;
+        this->goingUp = !goingUp;
+        this->updateText();
+    }
+
     this->updateEnemies();
 }
 
@@ -75,6 +94,11 @@ void Game::updateEnemies()
     }
 }
 
+void Game::updateText()
+{
+    this->text.setString("Score:" + std::to_string(this->score));
+}
+
 void Game::render()
 {
     /*
@@ -86,8 +110,11 @@ void Game::render()
     //Clear
     this->window->clear(sf::Color::Green);
 
-    //Draw
+    //Draw characters
     this->renderCharacters();
+
+    //Draw score
+    this->renderScore(this->window);
 
     //Display
     this->window->display();
@@ -104,9 +131,16 @@ void Game::renderCharacters()
 
 }
 
+void Game::renderScore(sf::RenderTarget* target)
+{
+    target->draw(this->text);
+}
+
 
 void Game::spawnEnemy()
 {
+
+    //choose line to spawn
     updateSpawnLines();
 
     int line = 0;
@@ -115,14 +149,18 @@ void Game::spawnEnemy()
         line = rand() % 8 + 1;
     } while (spawnlines[line] == 1);
 
+    this->enemy.setLine(line);
+
+
+    //choose speed
+    int randSpeed = rand() % 10;
+    this->enemy.setSpeed(4.f + (static_cast<float>(randSpeed)) / 10);
 
     // Generate new Enemy
     this->enemy.getShape().setPosition(
         -160.f,
         static_cast<float>(line * 50 + 5) //8 horizontal rows for snakes      
     );
-
-    this->enemy.setLine(line);
     
 
     // Spawn the Enemy
@@ -148,6 +186,7 @@ void Game::initVars()
 	this->window = nullptr;
 
     this->score = 0;
+    this->goingUp = false;
     this->enemySpawnTimer = 0.f;
     this->enemySpawnTimerMax = 15.f;
     this->maxEnemies = 15;
@@ -180,6 +219,21 @@ void Game::initPlayer()
     this->player.getShape().setOutlineThickness(1.f);
 }
 
+void Game::initFont()
+{
+    if (!this->font.loadFromFile("Valorax-lg25V.otf"))
+    {
+        std::cerr << "Error while loading font from ../fonts/Valorax-lg25V.otf";
+    }
+}
+
+void Game::initText()
+{
+    this->text.setFont(this->font);
+    this->text.setFillColor(sf::Color::Black);
+    this->text.setCharacterSize(20);
+    this->text.setString("Score:" + std::to_string(this->score));
+}
 
 // Accessors
 

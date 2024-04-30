@@ -27,6 +27,11 @@ void Player::updateInput() {
 	}
 }
 
+bool Player::reachedOtherSide(bool up)
+{
+	return (!up && this->shape.getPosition().y == 455.f) || (up && this->shape.getPosition().y == 5.f); //not very smart, but it is what it is)
+}
+
 void Player::update() {
 	
 	this->updateInput();

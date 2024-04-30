@@ -9,6 +9,8 @@ public:
     void update() override;
     void updateInput();
 
+    bool reachedOtherSide(bool up);
+
 
 private:
     sf::Clock jumpClock; // Timer for jump cooldown

@@ -21,6 +21,12 @@ add_executable(Snakes
 target_link_libraries(Snakes PRIVATE sfml-graphics)
 target_compile_features(Snakes PRIVATE cxx_std_17)
 
+
+add_custom_command(TARGET Snakes POST_BUILD
+                   COMMAND ${CMAKE_COMMAND} -E copy
+                   ${CMAKE_SOURCE_DIR}/fonts/Valorax-lg25V.otf
+                   $<TARGET_FILE_DIR:Snakes>)
+
 if(WIN32)
     add_custom_command(
         TARGET Snakes

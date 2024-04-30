@@ -22,6 +22,7 @@ public:
 
 	void render();
 	void renderCharacters();
+	void renderScore(sf::RenderTarget* target);
 
 	void spawnEnemy();
 
@@ -43,6 +44,11 @@ private:
 	float enemySpawnTimerMax;
 	int maxEnemies;
 
+	bool goingUp;
+
+	sf::Font font;
+	sf::Text text;
+
 	std::vector<int> spawnlines;
 
 	// Game Objects
@@ -59,5 +65,8 @@ private:
 	void initWindow();
 	void initEnemies();
 	void initPlayer();
+	void initFont();
+	void initText();
 	void updateSpawnLines();
+	void updateText();
 };
