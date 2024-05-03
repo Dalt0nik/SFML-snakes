@@ -17,7 +17,8 @@ add_executable(Snakes
     src/Game.cpp
     src/Enemy.cpp
     src/Player.cpp
-    src/Character.cpp)
+    src/Character.cpp
+    src/EnemyBehavior.cpp)
 target_link_libraries(Snakes PRIVATE sfml-graphics)
 target_compile_features(Snakes PRIVATE cxx_std_17)
 

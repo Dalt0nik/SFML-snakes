@@ -1,20 +1,21 @@
-//#pragma once
-//
 #pragma once
+
+#include "EnemyBehavior.h"
 #include "Character.h"
 
 class Enemy : public Character {
 public:
     Enemy();
-    Enemy(int line,int speed, sf::RectangleShape shape);
+    Enemy(int line, float speed);
+    Enemy(int line, float speed, EnemyBehavior* behavior);
 
     void update() override;
     void setLine(int line);
-    void setSpeed(float speed);
+    void setBehavior(EnemyBehavior* newBehavior);
     int takesLine();
     int getLine();
 
 private:
-    float speed;
     int line;
+    std::unique_ptr<EnemyBehavior> behavior;
 };

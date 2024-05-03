@@ -66,7 +66,7 @@ private:
 
 	void initVars();
 	void initWindow();
-	void initEnemies();
+	void initEnemy(int line);
 	void initPlayer();
 	void initFont();
 	void initText();

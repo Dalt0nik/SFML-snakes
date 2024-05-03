@@ -6,8 +6,9 @@ class Character {
 public:
     virtual void update() = 0;
     sf::RectangleShape& getShape();
+    void move(float x, float y);
 
 protected:
     sf::RectangleShape shape;
-    void move(float x, float y);
+    void initShape();
 };
