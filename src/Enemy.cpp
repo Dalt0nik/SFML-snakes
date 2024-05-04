@@ -1,6 +1,9 @@
 #include "../Include/Enemy.h"
 #include <iostream>
 
+#include <istream>
+#include <ostream>
+
 //Enemy constructors
 
 //Enemy::Enemy() : Character() {}
@@ -56,4 +59,20 @@ void Enemy::update() {
 
     this->behavior->update(*this);
 
+}
+
+std::ostream& operator<<(std::ostream& os, const Enemy& enemy) {
+    os << enemy.line << ' ';
+    // Serialize the behavior object
+    // You'll need to implement operator<< for EnemyBehavior as well
+    os << *enemy.behavior;
+    return os;
+}
+
+std::istream& operator>>(std::istream& is, Enemy& enemy) {
+    is >> enemy.line;
+
+    // Deserialize the behavior object
+    is >> *enemy.behavior;
+    return is;
 }

@@ -1,9 +1,22 @@
 #include "EnemyBehavior.h"
 #include "Enemy.h"
 
+#include <istream>
+#include <ostream>
+
 EnemyBehavior::EnemyBehavior() = default;
 EnemyBehavior::EnemyBehavior(float speed) {
     this->speed = speed;
+}
+
+std::ostream& operator<<(std::ostream& os, const EnemyBehavior& behavior) {
+    os << behavior.speed;
+    return os;
+}
+
+std::istream& operator>>(std::istream& is, EnemyBehavior& behavior) {
+    is >> behavior.speed;
+    return is;
 }
 
 AggressiveBehavior::AggressiveBehavior() = default;

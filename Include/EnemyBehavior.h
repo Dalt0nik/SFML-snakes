@@ -1,6 +1,8 @@
 #pragma once
 
 #include<ctime>
+#include <ostream>
+#include <istream>
 
 class Enemy;
 
@@ -11,6 +13,9 @@ public:
     virtual ~EnemyBehavior() {}
     virtual void update(Enemy& enemy) = 0;
     float speed;
+
+    friend std::ostream& operator<<(std::ostream& os, const EnemyBehavior& behavior);
+    friend std::istream& operator>>(std::istream& is, EnemyBehavior& behavior);
 };
 
 class AggressiveBehavior : public EnemyBehavior {

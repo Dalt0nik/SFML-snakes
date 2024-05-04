@@ -3,6 +3,9 @@
 #include "EnemyBehavior.h"
 #include "Character.h"
 
+#include <ostream>
+#include <istream>
+
 class Enemy : public Character {
 public:
     Enemy();
@@ -14,6 +17,9 @@ public:
     void setBehavior(EnemyBehavior* newBehavior);
     int takesLine();
     int getLine();
+
+    friend std::ostream& operator<<(std::ostream& os, const Enemy& enemy);
+    friend std::istream& operator>>(std::istream& is, Enemy& enemy);
 
 private:
     int line;
