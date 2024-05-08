@@ -48,6 +48,7 @@ private:
 	float enemyLength;
 
 	bool goingUp;
+	bool pause;
 
 	sf::Font font;
 	sf::Text text;
@@ -73,7 +74,11 @@ private:
 
 	void updateSpawnLines();
 	void updateText();
+	
+	void updateInput();
 
+	void hideEnemies();
+	void showEnemies();
 
 	bool isCollision(float playerX, float enemyX);
 };

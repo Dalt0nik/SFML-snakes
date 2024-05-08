@@ -1,5 +1,6 @@
 #include "../Include/Game.h"
 #include <iostream>
+#include <fstream>
 
 
 // Constructor/Destructor
@@ -47,6 +48,8 @@ void Game::pollEvents()
 void Game::update()
 {
     this->pollEvents();
+    
+    this->updateInput();
 
     this->player.update();
 
@@ -64,7 +67,28 @@ void Game::update()
         this->updateText();
     }
 
-    this->updateEnemies();
+    if(!this->pause)
+        this->updateEnemies();
+}
+
+void Game::updateInput()
+{
+    static sf::Clock clock; // Clock to measure time since last key press
+    sf::Time elapsedTime = clock.getElapsedTime(); // Time since last key press
+
+    // Only process key press if at least 500 milliseconds have passed
+    if (elapsedTime.asMilliseconds() > 500) {
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+            if (this->pause)
+                this->showEnemies();
+            else
+                this->hideEnemies();
+
+            this->pause = !(this->pause);
+
+            clock.restart(); // Reset the clock
+        }
+    }
 }
 
 void Game::updateEnemies()
@@ -82,7 +106,7 @@ void Game::updateEnemies()
 
     }
 
-    for (int i = 0; i < this->enemies.size(); i++)
+    for (int i = this->enemies.size() - 1; i >= 0; --i)
     {
         this->enemies[i].update();
 
@@ -195,11 +219,65 @@ void Game::updateSpawnLines()
 
 }
 
+void Game::hideEnemies() {
+
+    std::cout << "Enemies loaded from file:\n";
+    for (const auto& enemy : this->enemies) {
+        // Example information display
+        const sf::RectangleShape& shape = enemy.getShape();
+        std::cout << "Enemy Line: " << enemy.getLine()
+            << ", Position: (" << shape.getPosition().x << ", " << shape.getPosition().y << ")"
+            << ", Size: (" << shape.getSize().x << ", " << shape.getSize().y << ")\n";
+    }
+    std::cout << '\n';
+
+    std::ofstream file("enemies.dat");
+    if (file.is_open()) {
+
+        file << this->enemies.size() << '\n';   // Write the number of enemies to the file
+        
+        for (const Enemy& enemy : this->enemies) {  // Write each enemy to the file
+            file << enemy << '\n';
+        }
+        file.close();
+    }
+
+    this->enemies.clear();
+}
+
+void Game::showEnemies() {
+    std::ifstream file("enemies.dat");
+    if (file.is_open()) {
+        
+        size_t numEnemies;
+        file >> numEnemies; // Read the number of enemies from the file
+        
+        this->enemies.clear();
+        for (size_t i = 0; i < numEnemies; ++i) {   // Read each enemy from the file
+            Enemy enemy;
+            file >> enemy;
+            this->enemies.push_back(std::move(enemy));
+        }
+        file.close();
+
+
+        std::cout << "Enemies loaded from file:\n";
+        for (const auto& enemy : this->enemies) {
+            // Example information display
+            const sf::RectangleShape& shape = enemy.getShape();
+            std::cout << "Enemy Line: " << enemy.getLine()
+                << ", Position: (" << shape.getPosition().x << ", " << shape.getPosition().y << ")"
+                << ", Size: (" << shape.getSize().x << ", " << shape.getSize().y << ")\n";
+        }
+    }
+}
+
 void Game::initVars()
 {
 	this->window = nullptr;
 
     this->endgame = false;
+    this->pause = false;
 
     this->score = 0;
     this->goingUp = false;
@@ -254,8 +332,6 @@ void Game::initText()
     this->text.setCharacterSize(20);
     this->text.setString("Score:" + std::to_string(this->score));
 }
-
-// Accessors
 
 const bool Game::running() const
 {

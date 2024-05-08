@@ -16,7 +16,7 @@ public:
     void setLine(int line);
     void setBehavior(EnemyBehavior* newBehavior);
     int takesLine();
-    int getLine();
+    const int getLine() const;
 
     friend std::ostream& operator<<(std::ostream& os, const Enemy& enemy);
     friend std::istream& operator>>(std::istream& is, Enemy& enemy);

@@ -46,7 +46,7 @@ int Enemy::takesLine() {
     else return 0;
 }
 
-int Enemy::getLine() {
+const int Enemy::getLine() const{
 
     return this->line;
 }
@@ -61,18 +61,93 @@ void Enemy::update() {
 
 }
 
+
+// Serialization
+
+
 std::ostream& operator<<(std::ostream& os, const Enemy& enemy) {
+    // Write line
     os << enemy.line << ' ';
-    // Serialize the behavior object
-    // You'll need to implement operator<< for EnemyBehavior as well
+
+    // Write the shape properties
+    const sf::RectangleShape& shape = enemy.getShape();
+    const sf::Vector2f position = shape.getPosition();
+    const sf::Vector2f size = shape.getSize();
+    const sf::Color fillColor = shape.getFillColor();
+    const sf::Color outlineColor = shape.getOutlineColor();
+    float outlineThickness = shape.getOutlineThickness();
+
+    // Write position, size, fill color, outline color, and outline thickness
+    os << position.x << ' ' << position.y << ' ';
+    os << size.x << ' ' << size.y << ' ';
+    os << static_cast<int>(fillColor.r) << ' ' << static_cast<int>(fillColor.g) << ' ' << static_cast<int>(fillColor.b) << ' ' << static_cast<int>(fillColor.a) << ' ';
+    os << static_cast<int>(outlineColor.r) << ' ' << static_cast<int>(outlineColor.g) << ' ' << static_cast<int>(outlineColor.b) << ' ' << static_cast<int>(outlineColor.a) << ' ';
+    os << std::fixed << std::setprecision(1) << outlineThickness << ' ';
+
+    // Write the behavior
     os << *enemy.behavior;
+
     return os;
 }
 
 std::istream& operator>>(std::istream& is, Enemy& enemy) {
-    is >> enemy.line;
+    // Read the `line` property
+    if (!(is >> enemy.line)) {
+        throw std::runtime_error("Failed to read enemy line");
+    }
 
-    // Deserialize the behavior object
-    is >> *enemy.behavior;
+    // Read the shape properties
+    sf::Vector2f position, size;
+    int fillColorR, fillColorG, fillColorB, fillColorA;
+    int outlineColorR, outlineColorG, outlineColorB, outlineColorA;
+    float outlineThickness;
+
+    if (!(is >> position.x >> position.y)) {
+        throw std::runtime_error("Failed to read shape position");
+    }
+    if (!(is >> size.x >> size.y)) {
+        throw std::runtime_error("Failed to read shape size");
+    }
+    if (!(is >> fillColorR >> fillColorG >> fillColorB >> fillColorA)) {
+        throw std::runtime_error("Failed to read fill color");
+    }
+    if (!(is >> outlineColorR >> outlineColorG >> outlineColorB >> outlineColorA)) {
+        throw std::runtime_error("Failed to read outline color");
+    }
+    if (!(is >> outlineThickness)) {
+        throw std::runtime_error("Failed to read outline thickness");
+    }
+
+    // Set the shape properties using the dot operator
+    sf::RectangleShape& shape = enemy.getShape();
+    shape.setPosition(position);
+    shape.setSize(size);
+    shape.setFillColor(sf::Color(fillColorR, fillColorG, fillColorB, fillColorA));
+    shape.setOutlineColor(sf::Color(outlineColorR, outlineColorG, outlineColorB, outlineColorA));
+    shape.setOutlineThickness(outlineThickness);
+
+    // Read the behavior type
+    int behaviorType;
+    if (!(is >> behaviorType)) {
+        throw std::runtime_error("Failed to read behavior type");
+    }
+
+    // Create the appropriate behavior object
+    if (behaviorType == static_cast<int>(BehaviorType::Passive)) {
+        enemy.behavior = std::make_unique<PassiveBehavior>();
+    }
+    else if (behaviorType == static_cast<int>(BehaviorType::Aggressive)) {
+        enemy.behavior = std::make_unique<AggressiveBehavior>();
+    }
+    else {
+        throw std::runtime_error("Unknown behavior type: " + std::to_string(behaviorType));
+    }
+
+    // Deserialize the behavior
+    if (!(is >> *enemy.behavior)) {
+        throw std::runtime_error("Failed to read enemy behavior");
+    }
+
     return is;
 }
+
