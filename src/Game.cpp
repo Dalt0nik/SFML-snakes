@@ -105,7 +105,7 @@ void Game::updateEnemies()
             this->enemySpawnTimer += 1.f;
 
     }
-
+    
     for (int i = this->enemies.size() - 1; i >= 0; --i)
     {
         this->enemies[i].update();
@@ -194,15 +194,15 @@ void Game::spawnEnemy()
     int randSpeed = (40 + rand() % 10);
 
     // Generate new Enemy
-    this->enemy = Enemy(line, randSpeed);
-    this->initEnemy(line);
+    Enemy enemy = Enemy(line, randSpeed);
 
-    if(line == 1 || line == 8)
-        this->enemy.setBehavior(new AggressiveBehavior());
+    this->initEnemy(&enemy, line);
+
+    if (line == 1 || line == 8)
+        enemy.setBehavior(new AggressiveBehavior());
     
-
     // Spawn the Enemy
-    this->enemies.push_back(std::move(this->enemy));
+    this->enemies.push_back(std::move(enemy));
 }
 
 // Private
@@ -276,17 +276,17 @@ void Game::initWindow()
     this->window->setFramerateLimit(60);
 }
 
-void Game::initEnemy(int line)
+void Game::initEnemy(Enemy* enemy, int line)
 {
-    //this->enemy.getShape().setPosition(50.f, 50.f);
-    this->enemy.getShape().setPosition(
+    enemy->getShape().setPosition(
         -160.f,
         static_cast<float>(line * 50 + 5) //8 horizontal rows for snakes      
     );
-    this->enemy.getShape().setSize(sf::Vector2f(this->enemyLength, 40.f));
-    this->enemy.getShape().setFillColor(sf::Color::Yellow);
-    this->enemy.getShape().setOutlineColor(sf::Color::Black);
-    this->enemy.getShape().setOutlineThickness(1.f);
+    enemy->getShape().setSize(sf::Vector2f(this->enemyLength, 40.f));
+    enemy->getShape().setFillColor(sf::Color::Yellow);
+    enemy->getShape().setOutlineColor(sf::Color::Black);
+    enemy->getShape().setOutlineThickness(1.f);
+
 }
 
 void Game::initPlayer()

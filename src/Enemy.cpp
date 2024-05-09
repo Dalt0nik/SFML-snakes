@@ -6,12 +6,6 @@
 
 //Enemy constructors
 
-//Enemy::Enemy() : Character() {}
-//Enemy::Enemy(int line, int speed, sf::RectangleShape shape) : Character() {
-//    this->line = line;
-//    this->shape = shape;
-//}
-
 Enemy::Enemy(){}
 
 Enemy::Enemy(int line, int speed) : behavior(std::make_unique<PassiveBehavior>(speed)) {

@@ -58,7 +58,6 @@ private:
 	// Game Objects
 
 	std::vector<Enemy> enemies;
-	Enemy enemy;
 	Player player;
 
 
@@ -67,7 +66,7 @@ private:
 
 	void initVars();
 	void initWindow();
-	void initEnemy(int line);
+	void initEnemy(Enemy* enemy, int line);
 	void initPlayer();
 	void initFont();
 	void initText();
