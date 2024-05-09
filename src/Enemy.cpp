@@ -14,12 +14,12 @@
 
 Enemy::Enemy(){}
 
-Enemy::Enemy(int line, float speed) : behavior(std::make_unique<PassiveBehavior>(speed)) {
+Enemy::Enemy(int line, int speed) : behavior(std::make_unique<PassiveBehavior>(speed)) {
     initShape();
     setLine(line);
 }
 
-Enemy::Enemy(int line, float speed, EnemyBehavior* behavior) : behavior(behavior) {
+Enemy::Enemy(int line, int speed, EnemyBehavior* behavior) : behavior(behavior) {
 
     initShape();
     setLine(line);
@@ -31,7 +31,7 @@ void Enemy::setBehavior(EnemyBehavior* newBehavior) { //set new Behavior type
         throw std::invalid_argument("newBehavior cannot be nullptr");
     }
 
-    float currentSpeed = behavior->speed;
+    int currentSpeed = behavior->speed;
     behavior.reset(newBehavior);
     behavior->speed = currentSpeed;
 }

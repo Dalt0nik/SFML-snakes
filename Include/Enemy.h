@@ -9,8 +9,10 @@
 class Enemy : public Character {
 public:
     Enemy();
-    Enemy(int line, float speed);
-    Enemy(int line, float speed, EnemyBehavior* behavior);
+    Enemy(int line, int speed);
+    Enemy(int line, int speed, EnemyBehavior* behavior);
+
+    std::unique_ptr<EnemyBehavior> behavior;
 
     void update() override;
     void setLine(int line);
@@ -23,5 +25,4 @@ public:
 
 private:
     int line;
-    std::unique_ptr<EnemyBehavior> behavior;
 };

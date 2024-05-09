@@ -1,38 +1,37 @@
 #include "EnemyBehavior.h"
 #include "Enemy.h"
 
+#include <iostream>
 #include <istream>
 #include <ostream>
 #include <iomanip>
 
 EnemyBehavior::EnemyBehavior() = default;
-EnemyBehavior::EnemyBehavior(float speed) {
+EnemyBehavior::EnemyBehavior(int speed) {
     this->speed = speed;
 }
 
 AggressiveBehavior::AggressiveBehavior() = default;
-AggressiveBehavior::AggressiveBehavior(float speed) : EnemyBehavior(speed) {}
+AggressiveBehavior::AggressiveBehavior(int speed) : EnemyBehavior(speed) {}
 
 void AggressiveBehavior::update(Enemy& enemy) {
 
-    //std::srand(static_cast<unsigned>(time(NULL)));
-    float additionalSpeed = static_cast<float>((rand() % 4) * 5) / 10;
-
-    enemy.move(this->speed + additionalSpeed, 0.f);
+    float finalSpeed = static_cast<float>((rand() % 3) * 20 + this->speed) / 10;
+    float stop = static_cast<float>(rand() % 2);
+    enemy.move(finalSpeed * stop, 0.f);
 
 }
 
 PassiveBehavior::PassiveBehavior() = default;
-PassiveBehavior::PassiveBehavior(float speed) : EnemyBehavior(speed) {}
+PassiveBehavior::PassiveBehavior(int speed) : EnemyBehavior(speed) {}
 
 void PassiveBehavior::update(Enemy& enemy) {
 
-    enemy.move(this->speed, 0.f);
+    enemy.move(static_cast<float>(this->speed) / 10, 0.f);
 }
 
 
-// Serializationw
-
+// Serialization
 
 std::ostream& operator<<(std::ostream& os, const EnemyBehavior& behavior) {
     // Serialize the behavior type
@@ -43,19 +42,14 @@ std::ostream& operator<<(std::ostream& os, const EnemyBehavior& behavior) {
 }
 
 std::istream& operator>>(std::istream& is, EnemyBehavior& behavior) {
-    // Read the behavior type
-    int behaviorType;
-    if (!(is >> behaviorType)) {
-        throw std::runtime_error("Error reading behavior type");
-    }
 
     // Read the speed
-    float speed;
+    int speed;
     if (!(is >> speed)) {
         throw std::runtime_error("Error reading behavior speed");
     }
 
-    // Update the behavior object
+    // Update speed
     behavior.speed = speed;
 
     return is;

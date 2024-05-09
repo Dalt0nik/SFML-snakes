@@ -191,7 +191,7 @@ void Game::spawnEnemy()
 
 
     //choose random speed
-    float randSpeed = (4.f + (static_cast<float>(rand() % 10)) / 10);
+    int randSpeed = (40 + rand() % 10);
 
     // Generate new Enemy
     this->enemy = Enemy(line, randSpeed);
@@ -221,16 +221,6 @@ void Game::updateSpawnLines()
 
 void Game::hideEnemies() {
 
-    std::cout << "Enemies loaded from file:\n";
-    for (const auto& enemy : this->enemies) {
-        // Example information display
-        const sf::RectangleShape& shape = enemy.getShape();
-        std::cout << "Enemy Line: " << enemy.getLine()
-            << ", Position: (" << shape.getPosition().x << ", " << shape.getPosition().y << ")"
-            << ", Size: (" << shape.getSize().x << ", " << shape.getSize().y << ")\n";
-    }
-    std::cout << '\n';
-
     std::ofstream file("enemies.dat");
     if (file.is_open()) {
 
@@ -256,19 +246,10 @@ void Game::showEnemies() {
         for (size_t i = 0; i < numEnemies; ++i) {   // Read each enemy from the file
             Enemy enemy;
             file >> enemy;
+            
             this->enemies.push_back(std::move(enemy));
         }
         file.close();
-
-
-        std::cout << "Enemies loaded from file:\n";
-        for (const auto& enemy : this->enemies) {
-            // Example information display
-            const sf::RectangleShape& shape = enemy.getShape();
-            std::cout << "Enemy Line: " << enemy.getLine()
-                << ", Position: (" << shape.getPosition().x << ", " << shape.getPosition().y << ")"
-                << ", Size: (" << shape.getSize().x << ", " << shape.getSize().y << ")\n";
-        }
     }
 }
 

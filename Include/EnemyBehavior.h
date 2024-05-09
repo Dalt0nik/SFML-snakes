@@ -15,11 +15,11 @@ enum class BehaviorType {
 class EnemyBehavior {
 public:
     EnemyBehavior();
-    EnemyBehavior(float speed);
+    EnemyBehavior(int speed);
     virtual ~EnemyBehavior() {}
     virtual void update(Enemy& enemy) = 0;
     virtual BehaviorType getType() const = 0;
-    float speed;
+    int speed;
 
     friend std::ostream& operator<<(std::ostream& os, const EnemyBehavior& behavior);
     friend std::istream& operator>>(std::istream& is, EnemyBehavior& behavior);
@@ -28,7 +28,7 @@ public:
 class AggressiveBehavior : public EnemyBehavior {
 public:
     AggressiveBehavior();
-    AggressiveBehavior(float speed);
+    AggressiveBehavior(int speed);
     void update(Enemy& enemy) override;
     BehaviorType getType() const override { return BehaviorType::Aggressive; }
 };
@@ -36,7 +36,7 @@ public:
 class PassiveBehavior : public EnemyBehavior {
 public:
     PassiveBehavior();
-    PassiveBehavior(float speed);
+    PassiveBehavior(int speed);
     void update(Enemy& enemy) override;
     BehaviorType getType() const override { return BehaviorType::Passive; }
 };
