@@ -1,0 +1,290 @@
+\doxysection{Enemy Class Reference}
+\hypertarget{class_enemy}{}\label{class_enemy}\index{Enemy@{Enemy}}
+
+
+Represents an enemy character in the game.  
+
+
+
+
+{\ttfamily \#include $<$Enemy.\+h$>$}
+
+Inheritance diagram for Enemy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_enemy}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_enemy_a94f30d348b6d2840fd71675472ba38dd}{Enemy}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{class_enemy}{Enemy} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_enemy_a4a1c4506cbecc578fd80de8c61c33d82}{Enemy}} (int \mbox{\hyperlink{class_enemy_a01e94e795f21f809a9610de6a979e78e}{line}}, int speed)
+\begin{DoxyCompactList}\small\item\em Constructs an \doxylink{class_enemy}{Enemy} object with a specific line and speed. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_enemy_ae603ef64c7338b93159c82dda087faa8}{Enemy}} (int \mbox{\hyperlink{class_enemy_a01e94e795f21f809a9610de6a979e78e}{line}}, int speed, \mbox{\hyperlink{class_enemy_behavior}{Enemy\+Behavior}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_enemy_a72a793a84646d23eb4b7fee5aa42067c}{behavior}})
+\begin{DoxyCompactList}\small\item\em Constructs an \doxylink{class_enemy}{Enemy} object with a specific line, speed, and behavior. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_aa70d742da02995011f1618acc9e303db}{update}} () override
+\begin{DoxyCompactList}\small\item\em Updates the enemy\textquotesingle{}s state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_ae1e0022be94dad8613c463e3949c1e03}{set\+Line}} (int \mbox{\hyperlink{class_enemy_a01e94e795f21f809a9610de6a979e78e}{line}})
+\begin{DoxyCompactList}\small\item\em Sets the line number for the enemy. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_a66f21efceeeb022832dcd526a39af1b2}{set\+Behavior}} (\mbox{\hyperlink{class_enemy_behavior}{Enemy\+Behavior}} \texorpdfstring{$\ast$}{*}new\+Behavior)
+\begin{DoxyCompactList}\small\item\em Changes the enemy\textquotesingle{}s behavior to a new type. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_enemy_a8d3e221b68286705a74aa2d3768429b8}{takes\+Line}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the enemy occupies a specific line. \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{class_enemy_aa7f5792063eae8931659ce18698c1e8d}{get\+Line}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the current line where the enemy is positioned. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_character}{Character}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_character_a1f4f190ccf7b93bd2ba0aaa25028d5b0}{update}} ()=0
+\begin{DoxyCompactList}\small\item\em Virtual function to update the character state. \end{DoxyCompactList}\item 
+sf\+::\+Rectangle\+Shape \& \mbox{\hyperlink{class_character_ac313e2fdecb5d1f7df43e38c0a3a7432}{get\+Shape}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves a modifiable shape of the character. \end{DoxyCompactList}\item 
+const sf\+::\+Rectangle\+Shape \& \mbox{\hyperlink{class_character_a9302601a6b81f9ac19856195ef6cd004}{get\+Shape}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the constant shape of the character. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_character_aba5a5f241bd373f8bf7abbafa0a93b6a}{move}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Moves the character by a specified offset. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_enemy_a01e94e795f21f809a9610de6a979e78e}{line}}
+\begin{DoxyCompactList}\small\item\em The line number where the enemy is positioned. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_enemy_behavior}{Enemy\+Behavior}} $>$ \mbox{\hyperlink{class_enemy_a72a793a84646d23eb4b7fee5aa42067c}{behavior}}
+\begin{DoxyCompactList}\small\item\em The behavior controlling the enemy\textquotesingle{}s movement. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{class_enemy_a91741e2a81fe71f6ec41d03f0a8ad341}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_enemy}{Enemy}} \&enemy)
+\begin{DoxyCompactList}\small\item\em Serializes an \doxylink{class_enemy}{Enemy} object to an output stream. \end{DoxyCompactList}\item 
+std\+::istream \& \mbox{\hyperlink{class_enemy_a6a9dc8b44cdd84c569a41e8ff28c35b3}{operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{class_enemy}{Enemy}} \&enemy)
+\begin{DoxyCompactList}\small\item\em Deserializes an \doxylink{class_enemy}{Enemy} object from an input stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_character}{Character}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_character_afb2e9da899ddca4ae777176c94547dac}{init\+Shape}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the character\textquotesingle{}s shape. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_character}{Character}}}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Rectangle\+Shape \mbox{\hyperlink{class_character_a04082dea083d043f3587c2048dccbe2b}{shape}}
+\begin{DoxyCompactList}\small\item\em Rectangle shape representing the character. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents an enemy character in the game. 
+
+Manages the behavior, position, and movement of enemies on different lines. Can adopt different behaviors to interact with the player or the environment. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_enemy_a94f30d348b6d2840fd71675472ba38dd}\label{class_enemy_a94f30d348b6d2840fd71675472ba38dd} 
+\index{Enemy@{Enemy}!Enemy@{Enemy}}
+\index{Enemy@{Enemy}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{Enemy()}{Enemy()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Enemy\+::\+Enemy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor for the \doxylink{class_enemy}{Enemy} class. 
+
+Initializes an empty \doxylink{class_enemy}{Enemy} object with default values. \Hypertarget{class_enemy_a4a1c4506cbecc578fd80de8c61c33d82}\label{class_enemy_a4a1c4506cbecc578fd80de8c61c33d82} 
+\index{Enemy@{Enemy}!Enemy@{Enemy}}
+\index{Enemy@{Enemy}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{Enemy()}{Enemy()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Enemy\+::\+Enemy (\begin{DoxyParamCaption}\item[{int}]{line,  }\item[{int}]{speed }\end{DoxyParamCaption})}
+
+
+
+Constructs an \doxylink{class_enemy}{Enemy} object with a specific line and speed. 
+
+Initializes the enemy\textquotesingle{}s shape and assigns a \doxylink{class_passive_behavior}{Passive\+Behavior} by default.
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & The line where the enemy will spawn. \\
+\hline
+{\em speed} & The speed of the enemy. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_enemy_ae603ef64c7338b93159c82dda087faa8}\label{class_enemy_ae603ef64c7338b93159c82dda087faa8} 
+\index{Enemy@{Enemy}!Enemy@{Enemy}}
+\index{Enemy@{Enemy}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{Enemy()}{Enemy()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Enemy\+::\+Enemy (\begin{DoxyParamCaption}\item[{int}]{line,  }\item[{int}]{speed,  }\item[{\mbox{\hyperlink{class_enemy_behavior}{Enemy\+Behavior}} \texorpdfstring{$\ast$}{*}}]{behavior }\end{DoxyParamCaption})}
+
+
+
+Constructs an \doxylink{class_enemy}{Enemy} object with a specific line, speed, and behavior. 
+
+Initializes the enemy\textquotesingle{}s shape and assigns the specified behavior.
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & The line where the enemy will spawn. \\
+\hline
+{\em speed} & The speed of the enemy. \\
+\hline
+{\em behavior} & Pointer to the behavior object that will control the enemy. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_enemy_aa7f5792063eae8931659ce18698c1e8d}\label{class_enemy_aa7f5792063eae8931659ce18698c1e8d} 
+\index{Enemy@{Enemy}!getLine@{getLine}}
+\index{getLine@{getLine}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{getLine()}{getLine()}}
+{\footnotesize\ttfamily const int Enemy\+::get\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the current line where the enemy is positioned. 
+
+\begin{DoxyReturn}{Returns}
+The line number occupied by the enemy. 
+\end{DoxyReturn}
+\Hypertarget{class_enemy_a66f21efceeeb022832dcd526a39af1b2}\label{class_enemy_a66f21efceeeb022832dcd526a39af1b2} 
+\index{Enemy@{Enemy}!setBehavior@{setBehavior}}
+\index{setBehavior@{setBehavior}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{setBehavior()}{setBehavior()}}
+{\footnotesize\ttfamily void Enemy\+::set\+Behavior (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_enemy_behavior}{Enemy\+Behavior}} \texorpdfstring{$\ast$}{*}}]{new\+Behavior }\end{DoxyParamCaption})}
+
+
+
+Changes the enemy\textquotesingle{}s behavior to a new type. 
+
+Updates the behavior of the enemy to a new one while maintaining the current speed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Behavior} & Pointer to the new behavior object. Must not be null. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if new\+Behavior is null. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_enemy_ae1e0022be94dad8613c463e3949c1e03}\label{class_enemy_ae1e0022be94dad8613c463e3949c1e03} 
+\index{Enemy@{Enemy}!setLine@{setLine}}
+\index{setLine@{setLine}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{setLine()}{setLine()}}
+{\footnotesize\ttfamily void Enemy\+::set\+Line (\begin{DoxyParamCaption}\item[{int}]{line }\end{DoxyParamCaption})}
+
+
+
+Sets the line number for the enemy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & The line number to assign to the enemy. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_enemy_a8d3e221b68286705a74aa2d3768429b8}\label{class_enemy_a8d3e221b68286705a74aa2d3768429b8} 
+\index{Enemy@{Enemy}!takesLine@{takesLine}}
+\index{takesLine@{takesLine}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{takesLine()}{takesLine()}}
+{\footnotesize\ttfamily int Enemy\+::takes\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the enemy occupies a specific line. 
+
+\begin{DoxyReturn}{Returns}
+The line number if the enemy is within a specific range, otherwise 0. 
+\end{DoxyReturn}
+\Hypertarget{class_enemy_aa70d742da02995011f1618acc9e303db}\label{class_enemy_aa70d742da02995011f1618acc9e303db} 
+\index{Enemy@{Enemy}!update@{update}}
+\index{update@{update}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Enemy\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates the enemy\textquotesingle{}s state. 
+
+Calls the update method of the assigned behavior to control the enemy\textquotesingle{}s movement. 
+
+Implements \mbox{\hyperlink{class_character_a1f4f190ccf7b93bd2ba0aaa25028d5b0}{Character}}.
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_enemy_a91741e2a81fe71f6ec41d03f0a8ad341}\label{class_enemy_a91741e2a81fe71f6ec41d03f0a8ad341} 
+\index{Enemy@{Enemy}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{class_enemy}{Enemy}} \&}]{enemy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Serializes an \doxylink{class_enemy}{Enemy} object to an output stream. 
+
+Writes the enemy\textquotesingle{}s line, shape properties (position, size, colors, outline), and behavior to the output stream.
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The output stream to write to. \\
+\hline
+{\em enemy} & The enemy object to serialize. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The modified output stream. 
+\end{DoxyReturn}
+\Hypertarget{class_enemy_a6a9dc8b44cdd84c569a41e8ff28c35b3}\label{class_enemy_a6a9dc8b44cdd84c569a41e8ff28c35b3} 
+\index{Enemy@{Enemy}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily std\+::istream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is,  }\item[{\mbox{\hyperlink{class_enemy}{Enemy}} \&}]{enemy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Deserializes an \doxylink{class_enemy}{Enemy} object from an input stream. 
+
+Reads the enemy\textquotesingle{}s line, shape properties (position, size, colors, outline), and behavior from the input stream.
+
+
+\begin{DoxyParams}{Parameters}
+{\em is} & The input stream to read from. \\
+\hline
+{\em enemy} & The enemy object to deserialize into. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The modified input stream. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & if any required data cannot be read or if the behavior type is unknown. \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_enemy_a72a793a84646d23eb4b7fee5aa42067c}\label{class_enemy_a72a793a84646d23eb4b7fee5aa42067c} 
+\index{Enemy@{Enemy}!behavior@{behavior}}
+\index{behavior@{behavior}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{behavior}{behavior}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{class_enemy_behavior}{Enemy\+Behavior}}$>$ Enemy\+::behavior\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The behavior controlling the enemy\textquotesingle{}s movement. 
+
+A unique pointer to an \doxylink{class_enemy_behavior}{Enemy\+Behavior} object that defines the enemy\textquotesingle{}s behavior. \Hypertarget{class_enemy_a01e94e795f21f809a9610de6a979e78e}\label{class_enemy_a01e94e795f21f809a9610de6a979e78e} 
+\index{Enemy@{Enemy}!line@{line}}
+\index{line@{line}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{line}{line}}
+{\footnotesize\ttfamily int Enemy\+::line\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The line number where the enemy is positioned. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Education/\+VU/4-\/semester/С\+PP/\+SFML-\/snakes/\+Include/\mbox{\hyperlink{_enemy_8h}{Enemy.\+h}}\end{DoxyCompactItemize}

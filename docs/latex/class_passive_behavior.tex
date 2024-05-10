@@ -1,0 +1,126 @@
+\doxysection{Passive\+Behavior Class Reference}
+\hypertarget{class_passive_behavior}{}\label{class_passive_behavior}\index{PassiveBehavior@{PassiveBehavior}}
+
+
+Implements a passive movement pattern for enemies.  
+
+
+
+
+{\ttfamily \#include $<$Enemy\+Behavior.\+h$>$}
+
+Inheritance diagram for Passive\+Behavior\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_passive_behavior}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_passive_behavior_aea47d9acab940de1b09bb391d2fa8093}{Passive\+Behavior}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \doxylink{class_passive_behavior}{Passive\+Behavior}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_passive_behavior_aed9195fece60caf37c392b090a3ba5fc}{Passive\+Behavior}} (int \mbox{\hyperlink{class_enemy_behavior_a1c3212fb20418b1ff612e0fa8102c4ff}{speed}})
+\begin{DoxyCompactList}\small\item\em Constructs \doxylink{class_passive_behavior}{Passive\+Behavior} with a specific speed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_passive_behavior_aa537cca5b63f95b630f4a2f5ed5c9f5c}{update}} (\mbox{\hyperlink{class_enemy}{Enemy}} \&enemy) override
+\begin{DoxyCompactList}\small\item\em Updates the enemy\textquotesingle{}s position using passive movement. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_enemy_behavior_8h_a4e1f87903ff65bc5e1d2670a44bb4cfa}{Behavior\+Type}} \mbox{\hyperlink{class_passive_behavior_aa5fc783b3b3bcb3519a0bb7cf1c40cfa}{get\+Type}} () const override
+\begin{DoxyCompactList}\small\item\em Returns the behavior type for passive enemies. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_enemy_behavior}{Enemy\+Behavior}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_enemy_behavior_a8213862f5410c3cc88a72d9a088f7e8d}{Enemy\+Behavior}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \doxylink{class_enemy_behavior}{Enemy\+Behavior}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_enemy_behavior_a7fc2518be3f3c6aa7326b9ff2a3b3589}{Enemy\+Behavior}} (int \mbox{\hyperlink{class_enemy_behavior_a1c3212fb20418b1ff612e0fa8102c4ff}{speed}})
+\begin{DoxyCompactList}\small\item\em Constructor that sets the speed of the enemy behavior. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_enemy_behavior_a20561949704f7316b5160a8b9c30780d}{\texorpdfstring{$\sim$}{\string~}\+Enemy\+Behavior}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor for \doxylink{class_enemy_behavior}{Enemy\+Behavior}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_enemy_behavior_a7e360dfdee9f89cf7e7f0cb714ddd61b}{update}} (\mbox{\hyperlink{class_enemy}{Enemy}} \&enemy)=0
+\begin{DoxyCompactList}\small\item\em Pure virtual method that updates the enemy behavior. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{_enemy_behavior_8h_a4e1f87903ff65bc5e1d2670a44bb4cfa}{Behavior\+Type}} \mbox{\hyperlink{class_enemy_behavior_a57d0c53f947fda5f661beddece373170}{get\+Type}} () const =0
+\begin{DoxyCompactList}\small\item\em Pure virtual method to return the behavior type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_enemy_behavior}{Enemy\+Behavior}}}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_enemy_behavior_a1c3212fb20418b1ff612e0fa8102c4ff}{speed}}
+\begin{DoxyCompactList}\small\item\em The speed associated with this behavior. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements a passive movement pattern for enemies. 
+
+Passive behavior makes the enemy move at a steady, predictable pace. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_passive_behavior_aea47d9acab940de1b09bb391d2fa8093}\label{class_passive_behavior_aea47d9acab940de1b09bb391d2fa8093} 
+\index{PassiveBehavior@{PassiveBehavior}!PassiveBehavior@{PassiveBehavior}}
+\index{PassiveBehavior@{PassiveBehavior}!PassiveBehavior@{PassiveBehavior}}
+\doxysubsubsection{\texorpdfstring{PassiveBehavior()}{PassiveBehavior()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Passive\+Behavior\+::\+Passive\+Behavior (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor for \doxylink{class_passive_behavior}{Passive\+Behavior}. 
+
+\Hypertarget{class_passive_behavior_aed9195fece60caf37c392b090a3ba5fc}\label{class_passive_behavior_aed9195fece60caf37c392b090a3ba5fc} 
+\index{PassiveBehavior@{PassiveBehavior}!PassiveBehavior@{PassiveBehavior}}
+\index{PassiveBehavior@{PassiveBehavior}!PassiveBehavior@{PassiveBehavior}}
+\doxysubsubsection{\texorpdfstring{PassiveBehavior()}{PassiveBehavior()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Passive\+Behavior\+::\+Passive\+Behavior (\begin{DoxyParamCaption}\item[{int}]{speed }\end{DoxyParamCaption})}
+
+
+
+Constructs \doxylink{class_passive_behavior}{Passive\+Behavior} with a specific speed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed} & The speed value to initialize the passive behavior with. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_passive_behavior_aa5fc783b3b3bcb3519a0bb7cf1c40cfa}\label{class_passive_behavior_aa5fc783b3b3bcb3519a0bb7cf1c40cfa} 
+\index{PassiveBehavior@{PassiveBehavior}!getType@{getType}}
+\index{getType@{getType}!PassiveBehavior@{PassiveBehavior}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_enemy_behavior_8h_a4e1f87903ff65bc5e1d2670a44bb4cfa}{Behavior\+Type}} Passive\+Behavior\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the behavior type for passive enemies. 
+
+\begin{DoxyReturn}{Returns}
+The Behavior\+Type enumeration value for Passive behavior. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_enemy_behavior_a57d0c53f947fda5f661beddece373170}{Enemy\+Behavior}}.
+
+\Hypertarget{class_passive_behavior_aa537cca5b63f95b630f4a2f5ed5c9f5c}\label{class_passive_behavior_aa537cca5b63f95b630f4a2f5ed5c9f5c} 
+\index{PassiveBehavior@{PassiveBehavior}!update@{update}}
+\index{update@{update}!PassiveBehavior@{PassiveBehavior}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Passive\+Behavior\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_enemy}{Enemy}} \&}]{enemy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates the enemy\textquotesingle{}s position using passive movement. 
+
+Moves the enemy at a constant speed based on the configured behavior.
+
+
+\begin{DoxyParams}{Parameters}
+{\em enemy} & Reference to the enemy object to update. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_enemy_behavior_a7e360dfdee9f89cf7e7f0cb714ddd61b}{Enemy\+Behavior}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Education/\+VU/4-\/semester/С\+PP/\+SFML-\/snakes/\+Include/\mbox{\hyperlink{_enemy_behavior_8h}{Enemy\+Behavior.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,41 @@
+\doxysection{Enemy.\+h}
+\hypertarget{_enemy_8h_source}{}\label{_enemy_8h_source}\index{C:/Education/VU/4-\/semester/СPP/SFML-\/snakes/Include/Enemy.h@{C:/Education/VU/4-\/semester/СPP/SFML-\/snakes/Include/Enemy.h}}
+\mbox{\hyperlink{_enemy_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_enemy_behavior_8h}{EnemyBehavior.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_character_8h}{Character.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <ostream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <istream>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_enemy}{Enemy}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_character}{Character}}\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_enemy_a94f30d348b6d2840fd71675472ba38dd}{Enemy}}();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{class_enemy_a4a1c4506cbecc578fd80de8c61c33d82}{Enemy}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_enemy_a01e94e795f21f809a9610de6a979e78e}{line}},\ \textcolor{keywordtype}{int}\ speed);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{class_enemy_ae603ef64c7338b93159c82dda087faa8}{Enemy}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_enemy_a01e94e795f21f809a9610de6a979e78e}{line}},\ \textcolor{keywordtype}{int}\ speed,\ \mbox{\hyperlink{class_enemy_behavior}{EnemyBehavior}}*\ \mbox{\hyperlink{class_enemy_a72a793a84646d23eb4b7fee5aa42067c}{behavior}});}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_enemy_aa70d742da02995011f1618acc9e303db}{update}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_enemy_ae1e0022be94dad8613c463e3949c1e03}{setLine}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_enemy_a01e94e795f21f809a9610de6a979e78e}{line}});}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_enemy_a66f21efceeeb022832dcd526a39af1b2}{setBehavior}}(\mbox{\hyperlink{class_enemy_behavior}{EnemyBehavior}}*\ newBehavior);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_enemy_a8d3e221b68286705a74aa2d3768429b8}{takesLine}}();}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_enemy_aa7f5792063eae8931659ce18698c1e8d}{getLine}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ \mbox{\hyperlink{class_enemy_a91741e2a81fe71f6ec41d03f0a8ad341}{operator<<}}(std::ostream\&\ os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_enemy}{Enemy}}\&\ enemy);}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{friend}\ std::istream\&\ \mbox{\hyperlink{class_enemy_a6a9dc8b44cdd84c569a41e8ff28c35b3}{operator>>}}(std::istream\&\ is,\ \mbox{\hyperlink{class_enemy}{Enemy}}\&\ enemy);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_enemy_a01e94e795f21f809a9610de6a979e78e}{line}};}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00118\ \ \ \ \ std::unique\_ptr<EnemyBehavior>\ \mbox{\hyperlink{class_enemy_a72a793a84646d23eb4b7fee5aa42067c}{behavior}};}
+\DoxyCodeLine{00119\ \};}
+
+\end{DoxyCode}

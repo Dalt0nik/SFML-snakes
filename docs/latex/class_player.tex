@@ -1,0 +1,186 @@
+\doxysection{Player Class Reference}
+\hypertarget{class_player}{}\label{class_player}\index{Player@{Player}}
+
+
+Represents the player character in the game, inheriting from \doxylink{class_character}{Character}.  
+
+
+
+
+{\ttfamily \#include $<$Player.\+h$>$}
+
+Inheritance diagram for Player\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_player}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_player_affe0cc3cb714f6deb4e62f0c0d3f1fd8}{Player}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{class_player}{Player} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_player_ad756a1d341bbbba378407ea084f1167a}{Player}} (sf\+::\+Rectangle\+Shape \mbox{\hyperlink{class_character_a04082dea083d043f3587c2048dccbe2b}{shape}})
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_player}{Player} object with a specified shape. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a6912bb6e48efb5845d59f0f4582827ef}{update}} () override
+\begin{DoxyCompactList}\small\item\em Updates the player state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a4b20238e04015da71c61456091d2f1c9}{update\+Input}} ()
+\begin{DoxyCompactList}\small\item\em Updates the player\textquotesingle{}s position based on user input. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_player_a956182a631c5d566622b1a5248ceca3a}{reached\+Other\+Side}} (bool up)
+\begin{DoxyCompactList}\small\item\em Checks if the player has reached the opposite side of the screen. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_player_a5efaa0e8bcafcdf1948ce1f5b770ce86}{get\+Line}} ()
+\begin{DoxyCompactList}\small\item\em Gets the line number where the player is positioned. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_character}{Character}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_character_a1f4f190ccf7b93bd2ba0aaa25028d5b0}{update}} ()=0
+\begin{DoxyCompactList}\small\item\em Virtual function to update the character state. \end{DoxyCompactList}\item 
+sf\+::\+Rectangle\+Shape \& \mbox{\hyperlink{class_character_ac313e2fdecb5d1f7df43e38c0a3a7432}{get\+Shape}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves a modifiable shape of the character. \end{DoxyCompactList}\item 
+const sf\+::\+Rectangle\+Shape \& \mbox{\hyperlink{class_character_a9302601a6b81f9ac19856195ef6cd004}{get\+Shape}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the constant shape of the character. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_character_aba5a5f241bd373f8bf7abbafa0a93b6a}{move}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Moves the character by a specified offset. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Clock \mbox{\hyperlink{class_player_ab42cf546c4cbb02ac11fe80194054c09}{jump\+Clock}}
+\begin{DoxyCompactList}\small\item\em Timer to enforce a cooldown period between player moves. \end{DoxyCompactList}\item 
+const sf\+::\+Time \mbox{\hyperlink{class_player_a8ac3bc5165a907598af6b34016d8760a}{jump\+Cooldown}} = sf\+::seconds(0.\+15)
+\begin{DoxyCompactList}\small\item\em Cooldown period between consecutive player moves. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_character}{Character}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_character_afb2e9da899ddca4ae777176c94547dac}{init\+Shape}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the character\textquotesingle{}s shape. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_character}{Character}}}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Rectangle\+Shape \mbox{\hyperlink{class_character_a04082dea083d043f3587c2048dccbe2b}{shape}}
+\begin{DoxyCompactList}\small\item\em Rectangle shape representing the character. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents the player character in the game, inheriting from \doxylink{class_character}{Character}. 
+
+Manages the player\textquotesingle{}s movement, input, and position detection. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_player_affe0cc3cb714f6deb4e62f0c0d3f1fd8}\label{class_player_affe0cc3cb714f6deb4e62f0c0d3f1fd8} 
+\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Player\+::\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor for the \doxylink{class_player}{Player} class. 
+
+Initializes an empty \doxylink{class_player}{Player} object with default values. \Hypertarget{class_player_ad756a1d341bbbba378407ea084f1167a}\label{class_player_ad756a1d341bbbba378407ea084f1167a} 
+\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Player\+::\+Player (\begin{DoxyParamCaption}\item[{sf\+::\+Rectangle\+Shape}]{shape }\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_player}{Player} object with a specified shape. 
+
+Initializes the player\textquotesingle{}s shape based on the provided rectangle shape.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shape} & The rectangle shape to initialize the player\textquotesingle{}s shape. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_player_a5efaa0e8bcafcdf1948ce1f5b770ce86}\label{class_player_a5efaa0e8bcafcdf1948ce1f5b770ce86} 
+\index{Player@{Player}!getLine@{getLine}}
+\index{getLine@{getLine}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getLine()}{getLine()}}
+{\footnotesize\ttfamily int Player\+::get\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the line number where the player is positioned. 
+
+The line number is calculated based on the player\textquotesingle{}s Y position on the screen.
+
+\begin{DoxyReturn}{Returns}
+The line number occupied by the player. 
+\end{DoxyReturn}
+\Hypertarget{class_player_a956182a631c5d566622b1a5248ceca3a}\label{class_player_a956182a631c5d566622b1a5248ceca3a} 
+\index{Player@{Player}!reachedOtherSide@{reachedOtherSide}}
+\index{reachedOtherSide@{reachedOtherSide}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{reachedOtherSide()}{reachedOtherSide()}}
+{\footnotesize\ttfamily bool Player\+::reached\+Other\+Side (\begin{DoxyParamCaption}\item[{bool}]{up }\end{DoxyParamCaption})}
+
+
+
+Checks if the player has reached the opposite side of the screen. 
+
+Determines if the player is at the bottom when moving down or at the top when moving up.
+
+
+\begin{DoxyParams}{Parameters}
+{\em up} & Indicates whether the player is moving upwards. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the player has reached the opposite side, otherwise false. 
+\end{DoxyReturn}
+\Hypertarget{class_player_a6912bb6e48efb5845d59f0f4582827ef}\label{class_player_a6912bb6e48efb5845d59f0f4582827ef} 
+\index{Player@{Player}!update@{update}}
+\index{update@{update}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Player\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates the player state. 
+
+Calls {\ttfamily update\+Input} to process and update the player\textquotesingle{}s movement. 
+
+Implements \mbox{\hyperlink{class_character_a1f4f190ccf7b93bd2ba0aaa25028d5b0}{Character}}.
+
+\Hypertarget{class_player_a4b20238e04015da71c61456091d2f1c9}\label{class_player_a4b20238e04015da71c61456091d2f1c9} 
+\index{Player@{Player}!updateInput@{updateInput}}
+\index{updateInput@{updateInput}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{updateInput()}{updateInput()}}
+{\footnotesize\ttfamily void Player\+::update\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updates the player\textquotesingle{}s position based on user input. 
+
+Processes the movement using keyboard keys (WASD) with a cooldown period between moves. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_player_ab42cf546c4cbb02ac11fe80194054c09}\label{class_player_ab42cf546c4cbb02ac11fe80194054c09} 
+\index{Player@{Player}!jumpClock@{jumpClock}}
+\index{jumpClock@{jumpClock}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{jumpClock}{jumpClock}}
+{\footnotesize\ttfamily sf\+::\+Clock Player\+::jump\+Clock\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Timer to enforce a cooldown period between player moves. 
+
+\Hypertarget{class_player_a8ac3bc5165a907598af6b34016d8760a}\label{class_player_a8ac3bc5165a907598af6b34016d8760a} 
+\index{Player@{Player}!jumpCooldown@{jumpCooldown}}
+\index{jumpCooldown@{jumpCooldown}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{jumpCooldown}{jumpCooldown}}
+{\footnotesize\ttfamily const sf\+::\+Time Player\+::jump\+Cooldown = sf\+::seconds(0.\+15)\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Cooldown period between consecutive player moves. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Education/\+VU/4-\/semester/С\+PP/\+SFML-\/snakes/\+Include/\mbox{\hyperlink{_player_8h}{Player.\+h}}\end{DoxyCompactItemize}

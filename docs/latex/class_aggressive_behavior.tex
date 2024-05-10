@@ -1,0 +1,126 @@
+\doxysection{Aggressive\+Behavior Class Reference}
+\hypertarget{class_aggressive_behavior}{}\label{class_aggressive_behavior}\index{AggressiveBehavior@{AggressiveBehavior}}
+
+
+Implements an aggressive movement pattern for enemies.  
+
+
+
+
+{\ttfamily \#include $<$Enemy\+Behavior.\+h$>$}
+
+Inheritance diagram for Aggressive\+Behavior\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_aggressive_behavior}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_aggressive_behavior_a48f16e8d322da49cdfc47ad884b76e7b}{Aggressive\+Behavior}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \doxylink{class_aggressive_behavior}{Aggressive\+Behavior}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_aggressive_behavior_a23f27d985a1647be48265e82616d955a}{Aggressive\+Behavior}} (int \mbox{\hyperlink{class_enemy_behavior_a1c3212fb20418b1ff612e0fa8102c4ff}{speed}})
+\begin{DoxyCompactList}\small\item\em Constructs \doxylink{class_aggressive_behavior}{Aggressive\+Behavior} with a specific speed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_aggressive_behavior_aebe8c8d484b44ebca79546e1a43d09d2}{update}} (\mbox{\hyperlink{class_enemy}{Enemy}} \&enemy) override
+\begin{DoxyCompactList}\small\item\em Updates the enemy\textquotesingle{}s position using aggressive movement. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_enemy_behavior_8h_a4e1f87903ff65bc5e1d2670a44bb4cfa}{Behavior\+Type}} \mbox{\hyperlink{class_aggressive_behavior_a9f08b7f9e456313e203374c6a5451eb2}{get\+Type}} () const override
+\begin{DoxyCompactList}\small\item\em Returns the behavior type for aggressive enemies. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_enemy_behavior}{Enemy\+Behavior}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_enemy_behavior_a8213862f5410c3cc88a72d9a088f7e8d}{Enemy\+Behavior}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \doxylink{class_enemy_behavior}{Enemy\+Behavior}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_enemy_behavior_a7fc2518be3f3c6aa7326b9ff2a3b3589}{Enemy\+Behavior}} (int \mbox{\hyperlink{class_enemy_behavior_a1c3212fb20418b1ff612e0fa8102c4ff}{speed}})
+\begin{DoxyCompactList}\small\item\em Constructor that sets the speed of the enemy behavior. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_enemy_behavior_a20561949704f7316b5160a8b9c30780d}{\texorpdfstring{$\sim$}{\string~}\+Enemy\+Behavior}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor for \doxylink{class_enemy_behavior}{Enemy\+Behavior}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_enemy_behavior_a7e360dfdee9f89cf7e7f0cb714ddd61b}{update}} (\mbox{\hyperlink{class_enemy}{Enemy}} \&enemy)=0
+\begin{DoxyCompactList}\small\item\em Pure virtual method that updates the enemy behavior. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{_enemy_behavior_8h_a4e1f87903ff65bc5e1d2670a44bb4cfa}{Behavior\+Type}} \mbox{\hyperlink{class_enemy_behavior_a57d0c53f947fda5f661beddece373170}{get\+Type}} () const =0
+\begin{DoxyCompactList}\small\item\em Pure virtual method to return the behavior type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_enemy_behavior}{Enemy\+Behavior}}}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_enemy_behavior_a1c3212fb20418b1ff612e0fa8102c4ff}{speed}}
+\begin{DoxyCompactList}\small\item\em The speed associated with this behavior. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements an aggressive movement pattern for enemies. 
+
+Aggressive behavior makes the enemy move quickly and erratically. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_aggressive_behavior_a48f16e8d322da49cdfc47ad884b76e7b}\label{class_aggressive_behavior_a48f16e8d322da49cdfc47ad884b76e7b} 
+\index{AggressiveBehavior@{AggressiveBehavior}!AggressiveBehavior@{AggressiveBehavior}}
+\index{AggressiveBehavior@{AggressiveBehavior}!AggressiveBehavior@{AggressiveBehavior}}
+\doxysubsubsection{\texorpdfstring{AggressiveBehavior()}{AggressiveBehavior()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Aggressive\+Behavior\+::\+Aggressive\+Behavior (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor for \doxylink{class_aggressive_behavior}{Aggressive\+Behavior}. 
+
+\Hypertarget{class_aggressive_behavior_a23f27d985a1647be48265e82616d955a}\label{class_aggressive_behavior_a23f27d985a1647be48265e82616d955a} 
+\index{AggressiveBehavior@{AggressiveBehavior}!AggressiveBehavior@{AggressiveBehavior}}
+\index{AggressiveBehavior@{AggressiveBehavior}!AggressiveBehavior@{AggressiveBehavior}}
+\doxysubsubsection{\texorpdfstring{AggressiveBehavior()}{AggressiveBehavior()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Aggressive\+Behavior\+::\+Aggressive\+Behavior (\begin{DoxyParamCaption}\item[{int}]{speed }\end{DoxyParamCaption})}
+
+
+
+Constructs \doxylink{class_aggressive_behavior}{Aggressive\+Behavior} with a specific speed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed} & The speed value to initialize the aggressive behavior with. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_aggressive_behavior_a9f08b7f9e456313e203374c6a5451eb2}\label{class_aggressive_behavior_a9f08b7f9e456313e203374c6a5451eb2} 
+\index{AggressiveBehavior@{AggressiveBehavior}!getType@{getType}}
+\index{getType@{getType}!AggressiveBehavior@{AggressiveBehavior}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_enemy_behavior_8h_a4e1f87903ff65bc5e1d2670a44bb4cfa}{Behavior\+Type}} Aggressive\+Behavior\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the behavior type for aggressive enemies. 
+
+\begin{DoxyReturn}{Returns}
+The Behavior\+Type enumeration value for Aggressive behavior. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_enemy_behavior_a57d0c53f947fda5f661beddece373170}{Enemy\+Behavior}}.
+
+\Hypertarget{class_aggressive_behavior_aebe8c8d484b44ebca79546e1a43d09d2}\label{class_aggressive_behavior_aebe8c8d484b44ebca79546e1a43d09d2} 
+\index{AggressiveBehavior@{AggressiveBehavior}!update@{update}}
+\index{update@{update}!AggressiveBehavior@{AggressiveBehavior}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Aggressive\+Behavior\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_enemy}{Enemy}} \&}]{enemy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates the enemy\textquotesingle{}s position using aggressive movement. 
+
+Moves the enemy with a randomized speed based on the configured behavior.
+
+
+\begin{DoxyParams}{Parameters}
+{\em enemy} & Reference to the enemy object to update. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_enemy_behavior_a7e360dfdee9f89cf7e7f0cb714ddd61b}{Enemy\+Behavior}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Education/\+VU/4-\/semester/С\+PP/\+SFML-\/snakes/\+Include/\mbox{\hyperlink{_enemy_behavior_8h}{Enemy\+Behavior.\+h}}\end{DoxyCompactItemize}

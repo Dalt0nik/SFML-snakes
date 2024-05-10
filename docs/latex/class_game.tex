@@ -1,0 +1,506 @@
+\doxysection{Game Class Reference}
+\hypertarget{class_game}{}\label{class_game}\index{Game@{Game}}
+
+
+Manages the overall game setup, loop, and termination.  
+
+
+
+
+{\ttfamily \#include $<$Game.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_ad59df6562a58a614fda24622d3715b65}{Game}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{class_game}{Game} class. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_game_a72772b628443c3675976d6b5e6c9ec2a}{\texorpdfstring{$\sim$}{\string~}\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{class_game}{Game} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a8ea4777fdc751b40f778997b76ee7cf9}{poll\+Events}} ()
+\begin{DoxyCompactList}\small\item\em Handles all system events for the game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a79df6376b332d63c9eca0dcee30305c3}{update}} ()
+\begin{DoxyCompactList}\small\item\em Updates the game state, player movement, and enemies. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a0634553da4f33ed2c5a6f2cae6607ea5}{update\+Enemies}} ()
+\begin{DoxyCompactList}\small\item\em Updates enemies\textquotesingle{} movement and manages their lifecycle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a15ddd769261d923827a3cdf41499c843}{render}} ()
+\begin{DoxyCompactList}\small\item\em Renders all game components onto the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a167166f2f47c68e153d4f7637d1b4246}{render\+Characters}} ()
+\begin{DoxyCompactList}\small\item\em Renders all game characters onto the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a5e4288d9735c00456c606c6a43b3b60d}{render\+Score}} (sf\+::\+Render\+Target \texorpdfstring{$\ast$}{*}target)
+\begin{DoxyCompactList}\small\item\em Renders the game score onto the specified render target. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_ad7a4181414089729ddea00c053f822c4}{spawn\+Enemy}} ()
+\begin{DoxyCompactList}\small\item\em Spawns a new enemy in a random available line with a random speed. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{class_game_a3c75e92470139f175402030782794d34}{running}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the game is running and not in an endgame state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_game_aaaca27381f0dbd06064a88edddfbd465}{init\+Vars}} ()
+\begin{DoxyCompactList}\small\item\em Initializes default game variables. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a15f85bb1959ffeae84f17c7f08db9018}{init\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the main game window. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a3126622726ed9c4e8ba27bc5a98099ff}{init\+Enemy}} (\mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*}enemy, int line)
+\begin{DoxyCompactList}\small\item\em Initializes the properties of an enemy based on a specific line. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a405c0bb8156590c93304f11cf1f08065}{init\+Player}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the player\textquotesingle{}s properties like position, size, and colors. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a2ed3f2578a8485d4efe269e5439a8389}{init\+Font}} ()
+\begin{DoxyCompactList}\small\item\em Loads and initializes the game font. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a887122a8f11f1840ce201de658b38746}{init\+Text}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the score text properties like font, color, and size. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_ab3eabec20c5e0f8f3fcd5bfebcc7fc0b}{update\+Spawn\+Lines}} ()
+\begin{DoxyCompactList}\small\item\em Updates the available lines for enemy spawning. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a85906f7869555f0bfd703a1e7532e4e7}{update\+Text}} ()
+\begin{DoxyCompactList}\small\item\em Updates the game score text. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a9c3b0dc39ec07fa1205d6f23e267b15c}{update\+Input}} ()
+\begin{DoxyCompactList}\small\item\em Processes user input for pausing and resuming the game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a0203d2f5723f41a9d8507c63d461f96c}{hide\+Enemies}} ()
+\begin{DoxyCompactList}\small\item\em Serializes and hides all enemies by saving them to a file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a61b104d96a1c88913a6f0b9a38aea956}{show\+Enemies}} ()
+\begin{DoxyCompactList}\small\item\em Deserializes and shows all enemies from a file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_game_adb84a47d23296f649df53e762d019353}{is\+Collision}} (float playerX, float enemyX)
+\begin{DoxyCompactList}\small\item\em Checks if the player and enemy collide. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Render\+Window \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_game_af00d15651edd39b7c28262b23bb50c7a}{window}}
+\begin{DoxyCompactList}\small\item\em Pointer to the main game window. \end{DoxyCompactList}\item 
+sf\+::\+Event \mbox{\hyperlink{class_game_a0e54df902021fbf68140e4bee81ff369}{ev}}
+\begin{DoxyCompactList}\small\item\em Stores system events like keyboard and window events. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_game_ad67d3a7f0443959f326212eb77bbdebc}{endgame}}
+\begin{DoxyCompactList}\small\item\em Flag indicating if the game is in an endgame state. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_game_afaf9404196df9968103d5b0d0ad08139}{score}}
+\begin{DoxyCompactList}\small\item\em The current score of the game. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_game_a0a464b2dee4b5e28d3313782324695e8}{enemy\+Spawn\+Timer}}
+\begin{DoxyCompactList}\small\item\em Timer to keep track of enemy spawning intervals. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_game_aefb74723bcc4c5ad21ed4037fc4066b0}{enemy\+Spawn\+Timer\+Max}}
+\begin{DoxyCompactList}\small\item\em Maximum time interval for enemy spawning. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_game_a059ae97b6e1a991e807f2ccefb9b9e7d}{max\+Enemies}}
+\begin{DoxyCompactList}\small\item\em Maximum number of enemies allowed in the game. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_game_ab2b5beafddb4cbaf13d1775d7d407810}{enemy\+Length}}
+\begin{DoxyCompactList}\small\item\em The default length of each enemy. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_game_af619af1d9aca2301d8a64c5493c331fc}{going\+Up}}
+\begin{DoxyCompactList}\small\item\em Flag indicating the player\textquotesingle{}s movement direction. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_game_a2cd2b5e465e5820e90ef108258ac982c}{pause}}
+\begin{DoxyCompactList}\small\item\em Flag indicating if the game is paused. \end{DoxyCompactList}\item 
+sf\+::\+Font \mbox{\hyperlink{class_game_af729561d89036f0c841bc1a428dc43cf}{font}}
+\begin{DoxyCompactList}\small\item\em The main font used for displaying text in the game. \end{DoxyCompactList}\item 
+sf\+::\+Text \mbox{\hyperlink{class_game_a0bdfd716dd956fbd02a2877e30e217e6}{text}}
+\begin{DoxyCompactList}\small\item\em The main text object for displaying the game score. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_game_afd4a07812d7f62957e8b5b2f1363ee4d}{spawnlines}}
+\begin{DoxyCompactList}\small\item\em Vector that tracks which lines are available for enemy spawning. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} $>$ \mbox{\hyperlink{class_game_ab5ebf8d858e27bc2995e88f05fb50774}{enemies}}
+\begin{DoxyCompactList}\small\item\em Vector holding all the enemies currently in the game. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_player}{Player}} \mbox{\hyperlink{class_game_a6e48721b0532833b99fd5615a3628792}{player}}
+\begin{DoxyCompactList}\small\item\em The main player object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages the overall game setup, loop, and termination. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_game_ad59df6562a58a614fda24622d3715b65}\label{class_game_ad59df6562a58a614fda24622d3715b65} 
+\index{Game@{Game}!Game@{Game}}
+\index{Game@{Game}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Game()}{Game()}}
+{\footnotesize\ttfamily Game\+::\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor for the \doxylink{class_game}{Game} class. 
+
+Initializes game components like window, fonts, text, and player. \Hypertarget{class_game_a72772b628443c3675976d6b5e6c9ec2a}\label{class_game_a72772b628443c3675976d6b5e6c9ec2a} 
+\index{Game@{Game}!````~Game@{\texorpdfstring{$\sim$}{\string~}Game}}
+\index{````~Game@{\texorpdfstring{$\sim$}{\string~}Game}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Game()}{\string~Game()}}
+{\footnotesize\ttfamily virtual Game\+::\texorpdfstring{$\sim$}{\string~}\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destructor for the \doxylink{class_game}{Game} class. 
+
+Cleans up dynamic resources by deleting the window object. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_game_a0203d2f5723f41a9d8507c63d461f96c}\label{class_game_a0203d2f5723f41a9d8507c63d461f96c} 
+\index{Game@{Game}!hideEnemies@{hideEnemies}}
+\index{hideEnemies@{hideEnemies}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{hideEnemies()}{hideEnemies()}}
+{\footnotesize\ttfamily void Game\+::hide\+Enemies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Serializes and hides all enemies by saving them to a file. 
+
+Saves the current state of all enemies and clears the vector afterward. \Hypertarget{class_game_a3126622726ed9c4e8ba27bc5a98099ff}\label{class_game_a3126622726ed9c4e8ba27bc5a98099ff} 
+\index{Game@{Game}!initEnemy@{initEnemy}}
+\index{initEnemy@{initEnemy}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{initEnemy()}{initEnemy()}}
+{\footnotesize\ttfamily void Game\+::init\+Enemy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*}}]{enemy,  }\item[{int}]{line }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Initializes the properties of an enemy based on a specific line. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enemy} & Pointer to the \doxylink{class_enemy}{Enemy} object to initialize. \\
+\hline
+{\em line} & The line number where the enemy will spawn. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_game_a2ed3f2578a8485d4efe269e5439a8389}\label{class_game_a2ed3f2578a8485d4efe269e5439a8389} 
+\index{Game@{Game}!initFont@{initFont}}
+\index{initFont@{initFont}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{initFont()}{initFont()}}
+{\footnotesize\ttfamily void Game\+::init\+Font (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Loads and initializes the game font. 
+
+Loads the font from a specific file. \Hypertarget{class_game_a405c0bb8156590c93304f11cf1f08065}\label{class_game_a405c0bb8156590c93304f11cf1f08065} 
+\index{Game@{Game}!initPlayer@{initPlayer}}
+\index{initPlayer@{initPlayer}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{initPlayer()}{initPlayer()}}
+{\footnotesize\ttfamily void Game\+::init\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Initializes the player\textquotesingle{}s properties like position, size, and colors. 
+
+\Hypertarget{class_game_a887122a8f11f1840ce201de658b38746}\label{class_game_a887122a8f11f1840ce201de658b38746} 
+\index{Game@{Game}!initText@{initText}}
+\index{initText@{initText}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{initText()}{initText()}}
+{\footnotesize\ttfamily void Game\+::init\+Text (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Initializes the score text properties like font, color, and size. 
+
+\Hypertarget{class_game_aaaca27381f0dbd06064a88edddfbd465}\label{class_game_aaaca27381f0dbd06064a88edddfbd465} 
+\index{Game@{Game}!initVars@{initVars}}
+\index{initVars@{initVars}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{initVars()}{initVars()}}
+{\footnotesize\ttfamily void Game\+::init\+Vars (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Initializes default game variables. 
+
+Sets up initial values for game variables like score, enemy spawn timers, etc. \Hypertarget{class_game_a15f85bb1959ffeae84f17c7f08db9018}\label{class_game_a15f85bb1959ffeae84f17c7f08db9018} 
+\index{Game@{Game}!initWindow@{initWindow}}
+\index{initWindow@{initWindow}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{initWindow()}{initWindow()}}
+{\footnotesize\ttfamily void Game\+::init\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Initializes the main game window. 
+
+Sets up the game window with a title and framerate limit. \Hypertarget{class_game_adb84a47d23296f649df53e762d019353}\label{class_game_adb84a47d23296f649df53e762d019353} 
+\index{Game@{Game}!isCollision@{isCollision}}
+\index{isCollision@{isCollision}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{isCollision()}{isCollision()}}
+{\footnotesize\ttfamily bool Game\+::is\+Collision (\begin{DoxyParamCaption}\item[{float}]{playerX,  }\item[{float}]{enemyX }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Checks if the player and enemy collide. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em playerX} & The X-\/coordinate of the player. \\
+\hline
+{\em enemyX} & The X-\/coordinate of the enemy. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the player and enemy collide. 
+\end{DoxyReturn}
+\Hypertarget{class_game_a8ea4777fdc751b40f778997b76ee7cf9}\label{class_game_a8ea4777fdc751b40f778997b76ee7cf9} 
+\index{Game@{Game}!pollEvents@{pollEvents}}
+\index{pollEvents@{pollEvents}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{pollEvents()}{pollEvents()}}
+{\footnotesize\ttfamily void Game\+::poll\+Events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Handles all system events for the game. 
+
+Polls for system events like window close and keyboard key presses. \Hypertarget{class_game_a15ddd769261d923827a3cdf41499c843}\label{class_game_a15ddd769261d923827a3cdf41499c843} 
+\index{Game@{Game}!render@{render}}
+\index{render@{render}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Game\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Renders all game components onto the screen. 
+
+Clears the screen, then draws all characters and score text. \Hypertarget{class_game_a167166f2f47c68e153d4f7637d1b4246}\label{class_game_a167166f2f47c68e153d4f7637d1b4246} 
+\index{Game@{Game}!renderCharacters@{renderCharacters}}
+\index{renderCharacters@{renderCharacters}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{renderCharacters()}{renderCharacters()}}
+{\footnotesize\ttfamily void Game\+::render\+Characters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Renders all game characters onto the screen. 
+
+Draws both the player and enemies onto the screen. \Hypertarget{class_game_a5e4288d9735c00456c606c6a43b3b60d}\label{class_game_a5e4288d9735c00456c606c6a43b3b60d} 
+\index{Game@{Game}!renderScore@{renderScore}}
+\index{renderScore@{renderScore}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{renderScore()}{renderScore()}}
+{\footnotesize\ttfamily void Game\+::render\+Score (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \texorpdfstring{$\ast$}{*}}]{target }\end{DoxyParamCaption})}
+
+
+
+Renders the game score onto the specified render target. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & The render target where the score will be drawn. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_game_a3c75e92470139f175402030782794d34}\label{class_game_a3c75e92470139f175402030782794d34} 
+\index{Game@{Game}!running@{running}}
+\index{running@{running}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{running()}{running()}}
+{\footnotesize\ttfamily const bool Game\+::running (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Checks if the game is running and not in an endgame state. 
+
+\begin{DoxyReturn}{Returns}
+True if the game window is still open and the game is not over. 
+\end{DoxyReturn}
+\Hypertarget{class_game_a61b104d96a1c88913a6f0b9a38aea956}\label{class_game_a61b104d96a1c88913a6f0b9a38aea956} 
+\index{Game@{Game}!showEnemies@{showEnemies}}
+\index{showEnemies@{showEnemies}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{showEnemies()}{showEnemies()}}
+{\footnotesize\ttfamily void Game\+::show\+Enemies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Deserializes and shows all enemies from a file. 
+
+Loads the enemies from a file and populates the vector with their state. \Hypertarget{class_game_ad7a4181414089729ddea00c053f822c4}\label{class_game_ad7a4181414089729ddea00c053f822c4} 
+\index{Game@{Game}!spawnEnemy@{spawnEnemy}}
+\index{spawnEnemy@{spawnEnemy}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{spawnEnemy()}{spawnEnemy()}}
+{\footnotesize\ttfamily void Game\+::spawn\+Enemy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Spawns a new enemy in a random available line with a random speed. 
+
+Uses an available line to create and initialize a new enemy. \Hypertarget{class_game_a79df6376b332d63c9eca0dcee30305c3}\label{class_game_a79df6376b332d63c9eca0dcee30305c3} 
+\index{Game@{Game}!update@{update}}
+\index{update@{update}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Game\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updates the game state, player movement, and enemies. 
+
+Manages events, input processing, player movement, and enemy updates. \Hypertarget{class_game_a0634553da4f33ed2c5a6f2cae6607ea5}\label{class_game_a0634553da4f33ed2c5a6f2cae6607ea5} 
+\index{Game@{Game}!updateEnemies@{updateEnemies}}
+\index{updateEnemies@{updateEnemies}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{updateEnemies()}{updateEnemies()}}
+{\footnotesize\ttfamily void Game\+::update\+Enemies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updates enemies\textquotesingle{} movement and manages their lifecycle. 
+
+Handles enemy spawning, movement, and removal. \Hypertarget{class_game_a9c3b0dc39ec07fa1205d6f23e267b15c}\label{class_game_a9c3b0dc39ec07fa1205d6f23e267b15c} 
+\index{Game@{Game}!updateInput@{updateInput}}
+\index{updateInput@{updateInput}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{updateInput()}{updateInput()}}
+{\footnotesize\ttfamily void Game\+::update\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Processes user input for pausing and resuming the game. 
+
+Monitors keyboard events to toggle game pause. \Hypertarget{class_game_ab3eabec20c5e0f8f3fcd5bfebcc7fc0b}\label{class_game_ab3eabec20c5e0f8f3fcd5bfebcc7fc0b} 
+\index{Game@{Game}!updateSpawnLines@{updateSpawnLines}}
+\index{updateSpawnLines@{updateSpawnLines}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{updateSpawnLines()}{updateSpawnLines()}}
+{\footnotesize\ttfamily void Game\+::update\+Spawn\+Lines (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Updates the available lines for enemy spawning. 
+
+Initializes a vector that tracks which lines are available for spawning. \Hypertarget{class_game_a85906f7869555f0bfd703a1e7532e4e7}\label{class_game_a85906f7869555f0bfd703a1e7532e4e7} 
+\index{Game@{Game}!updateText@{updateText}}
+\index{updateText@{updateText}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{updateText()}{updateText()}}
+{\footnotesize\ttfamily void Game\+::update\+Text (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Updates the game score text. 
+
+Sets the game score text based on the current score. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_game_ad67d3a7f0443959f326212eb77bbdebc}\label{class_game_ad67d3a7f0443959f326212eb77bbdebc} 
+\index{Game@{Game}!endgame@{endgame}}
+\index{endgame@{endgame}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{endgame}{endgame}}
+{\footnotesize\ttfamily bool Game\+::endgame\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Flag indicating if the game is in an endgame state. 
+
+\Hypertarget{class_game_ab5ebf8d858e27bc2995e88f05fb50774}\label{class_game_ab5ebf8d858e27bc2995e88f05fb50774} 
+\index{Game@{Game}!enemies@{enemies}}
+\index{enemies@{enemies}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{enemies}{enemies}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_enemy}{Enemy}}$>$ Game\+::enemies\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Vector holding all the enemies currently in the game. 
+
+\Hypertarget{class_game_ab2b5beafddb4cbaf13d1775d7d407810}\label{class_game_ab2b5beafddb4cbaf13d1775d7d407810} 
+\index{Game@{Game}!enemyLength@{enemyLength}}
+\index{enemyLength@{enemyLength}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{enemyLength}{enemyLength}}
+{\footnotesize\ttfamily float Game\+::enemy\+Length\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The default length of each enemy. 
+
+\Hypertarget{class_game_a0a464b2dee4b5e28d3313782324695e8}\label{class_game_a0a464b2dee4b5e28d3313782324695e8} 
+\index{Game@{Game}!enemySpawnTimer@{enemySpawnTimer}}
+\index{enemySpawnTimer@{enemySpawnTimer}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{enemySpawnTimer}{enemySpawnTimer}}
+{\footnotesize\ttfamily float Game\+::enemy\+Spawn\+Timer\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Timer to keep track of enemy spawning intervals. 
+
+\Hypertarget{class_game_aefb74723bcc4c5ad21ed4037fc4066b0}\label{class_game_aefb74723bcc4c5ad21ed4037fc4066b0} 
+\index{Game@{Game}!enemySpawnTimerMax@{enemySpawnTimerMax}}
+\index{enemySpawnTimerMax@{enemySpawnTimerMax}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{enemySpawnTimerMax}{enemySpawnTimerMax}}
+{\footnotesize\ttfamily float Game\+::enemy\+Spawn\+Timer\+Max\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Maximum time interval for enemy spawning. 
+
+\Hypertarget{class_game_a0e54df902021fbf68140e4bee81ff369}\label{class_game_a0e54df902021fbf68140e4bee81ff369} 
+\index{Game@{Game}!ev@{ev}}
+\index{ev@{ev}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{ev}{ev}}
+{\footnotesize\ttfamily sf\+::\+Event Game\+::ev\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Stores system events like keyboard and window events. 
+
+\Hypertarget{class_game_af729561d89036f0c841bc1a428dc43cf}\label{class_game_af729561d89036f0c841bc1a428dc43cf} 
+\index{Game@{Game}!font@{font}}
+\index{font@{font}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{font}{font}}
+{\footnotesize\ttfamily sf\+::\+Font Game\+::font\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The main font used for displaying text in the game. 
+
+\Hypertarget{class_game_af619af1d9aca2301d8a64c5493c331fc}\label{class_game_af619af1d9aca2301d8a64c5493c331fc} 
+\index{Game@{Game}!goingUp@{goingUp}}
+\index{goingUp@{goingUp}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{goingUp}{goingUp}}
+{\footnotesize\ttfamily bool Game\+::going\+Up\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Flag indicating the player\textquotesingle{}s movement direction. 
+
+\Hypertarget{class_game_a059ae97b6e1a991e807f2ccefb9b9e7d}\label{class_game_a059ae97b6e1a991e807f2ccefb9b9e7d} 
+\index{Game@{Game}!maxEnemies@{maxEnemies}}
+\index{maxEnemies@{maxEnemies}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{maxEnemies}{maxEnemies}}
+{\footnotesize\ttfamily int Game\+::max\+Enemies\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Maximum number of enemies allowed in the game. 
+
+\Hypertarget{class_game_a2cd2b5e465e5820e90ef108258ac982c}\label{class_game_a2cd2b5e465e5820e90ef108258ac982c} 
+\index{Game@{Game}!pause@{pause}}
+\index{pause@{pause}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{pause}{pause}}
+{\footnotesize\ttfamily bool Game\+::pause\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Flag indicating if the game is paused. 
+
+\Hypertarget{class_game_a6e48721b0532833b99fd5615a3628792}\label{class_game_a6e48721b0532833b99fd5615a3628792} 
+\index{Game@{Game}!player@{player}}
+\index{player@{player}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{player}{player}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_player}{Player}} Game\+::player\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The main player object. 
+
+\Hypertarget{class_game_afaf9404196df9968103d5b0d0ad08139}\label{class_game_afaf9404196df9968103d5b0d0ad08139} 
+\index{Game@{Game}!score@{score}}
+\index{score@{score}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{score}{score}}
+{\footnotesize\ttfamily int Game\+::score\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The current score of the game. 
+
+\Hypertarget{class_game_afd4a07812d7f62957e8b5b2f1363ee4d}\label{class_game_afd4a07812d7f62957e8b5b2f1363ee4d} 
+\index{Game@{Game}!spawnlines@{spawnlines}}
+\index{spawnlines@{spawnlines}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{spawnlines}{spawnlines}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ Game\+::spawnlines\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Vector that tracks which lines are available for enemy spawning. 
+
+\Hypertarget{class_game_a0bdfd716dd956fbd02a2877e30e217e6}\label{class_game_a0bdfd716dd956fbd02a2877e30e217e6} 
+\index{Game@{Game}!text@{text}}
+\index{text@{text}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{text}{text}}
+{\footnotesize\ttfamily sf\+::\+Text Game\+::text\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The main text object for displaying the game score. 
+
+\Hypertarget{class_game_af00d15651edd39b7c28262b23bb50c7a}\label{class_game_af00d15651edd39b7c28262b23bb50c7a} 
+\index{Game@{Game}!window@{window}}
+\index{window@{window}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{window}{window}}
+{\footnotesize\ttfamily sf\+::\+Render\+Window\texorpdfstring{$\ast$}{*} Game\+::window\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Pointer to the main game window. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Education/\+VU/4-\/semester/С\+PP/\+SFML-\/snakes/\+Include/\mbox{\hyperlink{_game_8h}{Game.\+h}}\end{DoxyCompactItemize}

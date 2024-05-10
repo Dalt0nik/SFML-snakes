@@ -1,0 +1,137 @@
+\doxysection{Character Class Reference}
+\hypertarget{class_character}{}\label{class_character}\index{Character@{Character}}
+
+
+Base class representing a generic character in the game.  
+
+
+
+
+{\ttfamily \#include $<$Character.\+h$>$}
+
+Inheritance diagram for Character\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_character}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_character_a1f4f190ccf7b93bd2ba0aaa25028d5b0}{update}} ()=0
+\begin{DoxyCompactList}\small\item\em Virtual function to update the character state. \end{DoxyCompactList}\item 
+sf\+::\+Rectangle\+Shape \& \mbox{\hyperlink{class_character_ac313e2fdecb5d1f7df43e38c0a3a7432}{get\+Shape}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves a modifiable shape of the character. \end{DoxyCompactList}\item 
+const sf\+::\+Rectangle\+Shape \& \mbox{\hyperlink{class_character_a9302601a6b81f9ac19856195ef6cd004}{get\+Shape}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the constant shape of the character. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_character_aba5a5f241bd373f8bf7abbafa0a93b6a}{move}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Moves the character by a specified offset. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_character_afb2e9da899ddca4ae777176c94547dac}{init\+Shape}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the character\textquotesingle{}s shape. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Rectangle\+Shape \mbox{\hyperlink{class_character_a04082dea083d043f3587c2048dccbe2b}{shape}}
+\begin{DoxyCompactList}\small\item\em Rectangle shape representing the character. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class representing a generic character in the game. 
+
+Provides fundamental movement and shape manipulation methods for characters. Acts as a base class for specific types of characters like the player and enemies. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_character_ac313e2fdecb5d1f7df43e38c0a3a7432}\label{class_character_ac313e2fdecb5d1f7df43e38c0a3a7432} 
+\index{Character@{Character}!getShape@{getShape}}
+\index{getShape@{getShape}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{getShape()}{getShape()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily sf\+::\+Rectangle\+Shape \& Character\+::get\+Shape (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves a modifiable shape of the character. 
+
+Allows modification of the shape data of the character.
+
+\begin{DoxyReturn}{Returns}
+A reference to the character\textquotesingle{}s {\ttfamily sf\+::\+Rectangle\+Shape}. 
+\end{DoxyReturn}
+\Hypertarget{class_character_a9302601a6b81f9ac19856195ef6cd004}\label{class_character_a9302601a6b81f9ac19856195ef6cd004} 
+\index{Character@{Character}!getShape@{getShape}}
+\index{getShape@{getShape}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{getShape()}{getShape()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const sf\+::\+Rectangle\+Shape \& Character\+::get\+Shape (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the constant shape of the character. 
+
+Allows read-\/only access to the shape data of the character.
+
+\begin{DoxyReturn}{Returns}
+A constant reference to the character\textquotesingle{}s {\ttfamily sf\+::\+Rectangle\+Shape}. 
+\end{DoxyReturn}
+\Hypertarget{class_character_afb2e9da899ddca4ae777176c94547dac}\label{class_character_afb2e9da899ddca4ae777176c94547dac} 
+\index{Character@{Character}!initShape@{initShape}}
+\index{initShape@{initShape}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{initShape()}{initShape()}}
+{\footnotesize\ttfamily void Character\+::init\+Shape (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Initializes the character\textquotesingle{}s shape. 
+
+Sets up the character\textquotesingle{}s shape using default properties. \Hypertarget{class_character_aba5a5f241bd373f8bf7abbafa0a93b6a}\label{class_character_aba5a5f241bd373f8bf7abbafa0a93b6a} 
+\index{Character@{Character}!move@{move}}
+\index{move@{move}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void Character\+::move (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+
+
+Moves the character by a specified offset. 
+
+Changes the character\textquotesingle{}s position by the given X and Y offset values.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The offset on the X-\/axis. \\
+\hline
+{\em y} & The offset on the Y-\/axis. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_character_a1f4f190ccf7b93bd2ba0aaa25028d5b0}\label{class_character_a1f4f190ccf7b93bd2ba0aaa25028d5b0} 
+\index{Character@{Character}!update@{update}}
+\index{update@{update}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily virtual void Character\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Virtual function to update the character state. 
+
+Must be implemented by derived classes to handle their specific update logic. 
+
+Implemented in \mbox{\hyperlink{class_enemy_aa70d742da02995011f1618acc9e303db}{Enemy}}, and \mbox{\hyperlink{class_player_a6912bb6e48efb5845d59f0f4582827ef}{Player}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_character_a04082dea083d043f3587c2048dccbe2b}\label{class_character_a04082dea083d043f3587c2048dccbe2b} 
+\index{Character@{Character}!shape@{shape}}
+\index{shape@{shape}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{shape}{shape}}
+{\footnotesize\ttfamily sf\+::\+Rectangle\+Shape Character\+::shape\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Rectangle shape representing the character. 
+
+Defines the appearance of the character, including size, position, and color. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Education/\+VU/4-\/semester/С\+PP/\+SFML-\/snakes/\+Include/\mbox{\hyperlink{_character_8h}{Character.\+h}}\end{DoxyCompactItemize}

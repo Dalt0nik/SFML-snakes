@@ -1,0 +1,198 @@
+\doxysection{Enemy\+Behavior Class Reference}
+\hypertarget{class_enemy_behavior}{}\label{class_enemy_behavior}\index{EnemyBehavior@{EnemyBehavior}}
+
+
+Base class that defines the behavior of an enemy character.  
+
+
+
+
+{\ttfamily \#include $<$Enemy\+Behavior.\+h$>$}
+
+Inheritance diagram for Enemy\+Behavior\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_enemy_behavior}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_enemy_behavior_a8213862f5410c3cc88a72d9a088f7e8d}{Enemy\+Behavior}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \doxylink{class_enemy_behavior}{Enemy\+Behavior}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_enemy_behavior_a7fc2518be3f3c6aa7326b9ff2a3b3589}{Enemy\+Behavior}} (int \mbox{\hyperlink{class_enemy_behavior_a1c3212fb20418b1ff612e0fa8102c4ff}{speed}})
+\begin{DoxyCompactList}\small\item\em Constructor that sets the speed of the enemy behavior. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_enemy_behavior_a20561949704f7316b5160a8b9c30780d}{\texorpdfstring{$\sim$}{\string~}\+Enemy\+Behavior}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor for \doxylink{class_enemy_behavior}{Enemy\+Behavior}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_enemy_behavior_a7e360dfdee9f89cf7e7f0cb714ddd61b}{update}} (\mbox{\hyperlink{class_enemy}{Enemy}} \&enemy)=0
+\begin{DoxyCompactList}\small\item\em Pure virtual method that updates the enemy behavior. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{_enemy_behavior_8h_a4e1f87903ff65bc5e1d2670a44bb4cfa}{Behavior\+Type}} \mbox{\hyperlink{class_enemy_behavior_a57d0c53f947fda5f661beddece373170}{get\+Type}} () const =0
+\begin{DoxyCompactList}\small\item\em Pure virtual method to return the behavior type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_enemy_behavior_a1c3212fb20418b1ff612e0fa8102c4ff}{speed}}
+\begin{DoxyCompactList}\small\item\em The speed associated with this behavior. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{class_enemy_behavior_a76e0c53c8616c543576b07cad4399f6e}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_enemy_behavior}{Enemy\+Behavior}} \&behavior)
+\begin{DoxyCompactList}\small\item\em Serializes an \doxylink{class_enemy_behavior}{Enemy\+Behavior} object to an output stream. \end{DoxyCompactList}\item 
+std\+::istream \& \mbox{\hyperlink{class_enemy_behavior_a68a22e59bdca938ac8fd18cde9eb4a2a}{operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{class_enemy_behavior}{Enemy\+Behavior}} \&behavior)
+\begin{DoxyCompactList}\small\item\em Deserializes an \doxylink{class_enemy_behavior}{Enemy\+Behavior} object from an input stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class that defines the behavior of an enemy character. 
+
+Provides the base implementation for different enemy behaviors. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_enemy_behavior_a8213862f5410c3cc88a72d9a088f7e8d}\label{class_enemy_behavior_a8213862f5410c3cc88a72d9a088f7e8d} 
+\index{EnemyBehavior@{EnemyBehavior}!EnemyBehavior@{EnemyBehavior}}
+\index{EnemyBehavior@{EnemyBehavior}!EnemyBehavior@{EnemyBehavior}}
+\doxysubsubsection{\texorpdfstring{EnemyBehavior()}{EnemyBehavior()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Enemy\+Behavior\+::\+Enemy\+Behavior (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor for \doxylink{class_enemy_behavior}{Enemy\+Behavior}. 
+
+\Hypertarget{class_enemy_behavior_a7fc2518be3f3c6aa7326b9ff2a3b3589}\label{class_enemy_behavior_a7fc2518be3f3c6aa7326b9ff2a3b3589} 
+\index{EnemyBehavior@{EnemyBehavior}!EnemyBehavior@{EnemyBehavior}}
+\index{EnemyBehavior@{EnemyBehavior}!EnemyBehavior@{EnemyBehavior}}
+\doxysubsubsection{\texorpdfstring{EnemyBehavior()}{EnemyBehavior()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Enemy\+Behavior\+::\+Enemy\+Behavior (\begin{DoxyParamCaption}\item[{int}]{speed }\end{DoxyParamCaption})}
+
+
+
+Constructor that sets the speed of the enemy behavior. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed} & The speed value to initialize the behavior with. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_enemy_behavior_a20561949704f7316b5160a8b9c30780d}\label{class_enemy_behavior_a20561949704f7316b5160a8b9c30780d} 
+\index{EnemyBehavior@{EnemyBehavior}!````~EnemyBehavior@{\texorpdfstring{$\sim$}{\string~}EnemyBehavior}}
+\index{````~EnemyBehavior@{\texorpdfstring{$\sim$}{\string~}EnemyBehavior}!EnemyBehavior@{EnemyBehavior}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}EnemyBehavior()}{\string~EnemyBehavior()}}
+{\footnotesize\ttfamily virtual Enemy\+Behavior\+::\texorpdfstring{$\sim$}{\string~}\+Enemy\+Behavior (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Virtual destructor for \doxylink{class_enemy_behavior}{Enemy\+Behavior}. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_enemy_behavior_a57d0c53f947fda5f661beddece373170}\label{class_enemy_behavior_a57d0c53f947fda5f661beddece373170} 
+\index{EnemyBehavior@{EnemyBehavior}!getType@{getType}}
+\index{getType@{getType}!EnemyBehavior@{EnemyBehavior}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{_enemy_behavior_8h_a4e1f87903ff65bc5e1d2670a44bb4cfa}{Behavior\+Type}} Enemy\+Behavior\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual method to return the behavior type. 
+
+Must be implemented in derived classes to identify the type of behavior.
+
+\begin{DoxyReturn}{Returns}
+The Behavior\+Type enumeration value representing the behavior type. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_aggressive_behavior_a9f08b7f9e456313e203374c6a5451eb2}{Aggressive\+Behavior}}, and \mbox{\hyperlink{class_passive_behavior_aa5fc783b3b3bcb3519a0bb7cf1c40cfa}{Passive\+Behavior}}.
+
+\Hypertarget{class_enemy_behavior_a7e360dfdee9f89cf7e7f0cb714ddd61b}\label{class_enemy_behavior_a7e360dfdee9f89cf7e7f0cb714ddd61b} 
+\index{EnemyBehavior@{EnemyBehavior}!update@{update}}
+\index{update@{update}!EnemyBehavior@{EnemyBehavior}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily virtual void Enemy\+Behavior\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_enemy}{Enemy}} \&}]{enemy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual method that updates the enemy behavior. 
+
+This method must be implemented by derived classes to define how the enemy moves.
+
+
+\begin{DoxyParams}{Parameters}
+{\em enemy} & Reference to the enemy object to update. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_aggressive_behavior_aebe8c8d484b44ebca79546e1a43d09d2}{Aggressive\+Behavior}}, and \mbox{\hyperlink{class_passive_behavior_aa537cca5b63f95b630f4a2f5ed5c9f5c}{Passive\+Behavior}}.
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_enemy_behavior_a76e0c53c8616c543576b07cad4399f6e}\label{class_enemy_behavior_a76e0c53c8616c543576b07cad4399f6e} 
+\index{EnemyBehavior@{EnemyBehavior}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!EnemyBehavior@{EnemyBehavior}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{class_enemy_behavior}{Enemy\+Behavior}} \&}]{behavior }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Serializes an \doxylink{class_enemy_behavior}{Enemy\+Behavior} object to an output stream. 
+
+Writes the behavior type and speed to the output stream.
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The output stream to write to. \\
+\hline
+{\em behavior} & The behavior object to serialize. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The modified output stream. 
+\end{DoxyReturn}
+\Hypertarget{class_enemy_behavior_a68a22e59bdca938ac8fd18cde9eb4a2a}\label{class_enemy_behavior_a68a22e59bdca938ac8fd18cde9eb4a2a} 
+\index{EnemyBehavior@{EnemyBehavior}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!EnemyBehavior@{EnemyBehavior}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily std\+::istream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is,  }\item[{\mbox{\hyperlink{class_enemy_behavior}{Enemy\+Behavior}} \&}]{behavior }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Deserializes an \doxylink{class_enemy_behavior}{Enemy\+Behavior} object from an input stream. 
+
+Reads the behavior type and speed from the input stream and updates the behavior.
+
+
+\begin{DoxyParams}{Parameters}
+{\em is} & The input stream to read from. \\
+\hline
+{\em behavior} & The behavior object to deserialize into. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The modified input stream. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & if the speed cannot be read. \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_enemy_behavior_a1c3212fb20418b1ff612e0fa8102c4ff}\label{class_enemy_behavior_a1c3212fb20418b1ff612e0fa8102c4ff} 
+\index{EnemyBehavior@{EnemyBehavior}!speed@{speed}}
+\index{speed@{speed}!EnemyBehavior@{EnemyBehavior}}
+\doxysubsubsection{\texorpdfstring{speed}{speed}}
+{\footnotesize\ttfamily int Enemy\+Behavior\+::speed}
+
+
+
+The speed associated with this behavior. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Education/\+VU/4-\/semester/С\+PP/\+SFML-\/snakes/\+Include/\mbox{\hyperlink{_enemy_behavior_8h}{Enemy\+Behavior.\+h}}\end{DoxyCompactItemize}
