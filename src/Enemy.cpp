@@ -1,26 +1,58 @@
 #include "../Include/Enemy.h"
 #include <iostream>
-
 #include <istream>
 #include <ostream>
 
-//Enemy constructors
+/**
+ * @class Enemy
+ * @brief Represents an enemy character in the game.
+ *
+ * Manages the behavior, position, and movement of enemies on different lines.
+ */
 
-Enemy::Enemy(){}
+ /**
+  * @brief Default constructor for the Enemy class.
+  *
+  * Initializes an empty Enemy object with default values.
+  */
+Enemy::Enemy() {}
 
+/**
+ * @brief Constructs an Enemy object with a specific line and speed.
+ *
+ * Initializes the enemy's shape and assigns a PassiveBehavior by default.
+ *
+ * @param line The line where the enemy will spawn.
+ * @param speed The speed of the enemy.
+ */
 Enemy::Enemy(int line, int speed) : behavior(std::make_unique<PassiveBehavior>(speed)) {
     initShape();
     setLine(line);
 }
 
+/**
+ * @brief Constructs an Enemy object with a specific line, speed, and behavior.
+ *
+ * Initializes the enemy's shape and assigns the specified behavior.
+ *
+ * @param line The line where the enemy will spawn.
+ * @param speed The speed of the enemy.
+ * @param behavior Pointer to the behavior object that will control the enemy.
+ */
 Enemy::Enemy(int line, int speed, EnemyBehavior* behavior) : behavior(behavior) {
-
     initShape();
     setLine(line);
 }
 
-void Enemy::setBehavior(EnemyBehavior* newBehavior) { //set new Behavior type
-
+/**
+ * @brief Changes the enemy's behavior to a new type.
+ *
+ * Updates the behavior of the enemy to a new one while maintaining the current speed.
+ *
+ * @param newBehavior Pointer to the new behavior object. Must not be null.
+ * @throws std::invalid_argument if newBehavior is null.
+ */
+void Enemy::setBehavior(EnemyBehavior* newBehavior) {
     if (newBehavior == nullptr) {
         throw std::invalid_argument("newBehavior cannot be nullptr");
     }
@@ -30,35 +62,60 @@ void Enemy::setBehavior(EnemyBehavior* newBehavior) { //set new Behavior type
     behavior->speed = currentSpeed;
 }
 
-
-//indicates if enemy takes spawn in line, where 0 is none and 1-8 is number of taken line
+/**
+ * @brief Checks if the enemy occupies a specific line.
+ *
+ * @return The line number if the enemy is within a specific range, otherwise 0.
+ */
 int Enemy::takesLine() {
-    if (this->shape.getPosition().x < 300.f)
-    {
+    if (this->shape.getPosition().x < 300.f) {
         return this->line;
     }
-    else return 0;
+    else {
+        return 0;
+    }
 }
 
-const int Enemy::getLine() const{
-
+/**
+ * @brief Retrieves the current line where the enemy is positioned.
+ *
+ * @return The line number occupied by the enemy.
+ */
+const int Enemy::getLine() const {
     return this->line;
 }
 
+/**
+ * @brief Sets the line number for the enemy.
+ *
+ * @param line The line number to assign to the enemy.
+ */
 void Enemy::setLine(int line) {
     this->line = line;
 }
 
+/**
+ * @brief Updates the enemy's behavior.
+ *
+ * Calls the update method of the assigned behavior to control the enemy's movement.
+ */
 void Enemy::update() {
-
     this->behavior->update(*this);
-
 }
+
 
 
 // Serialization
 
-
+/**
+ * @brief Serializes an Enemy object to an output stream.
+ *
+ * Writes the enemy's line, shape properties (position, size, colors, outline), and behavior to the output stream.
+ *
+ * @param os The output stream to write to.
+ * @param enemy The enemy object to serialize.
+ * @return The modified output stream.
+ */
 std::ostream& operator<<(std::ostream& os, const Enemy& enemy) {
     // Write line
     os << enemy.line << ' ';
@@ -84,8 +141,18 @@ std::ostream& operator<<(std::ostream& os, const Enemy& enemy) {
     return os;
 }
 
+/**
+ * @brief Deserializes an Enemy object from an input stream.
+ *
+ * Reads the enemy's line, shape properties (position, size, colors, outline), and behavior from the input stream.
+ *
+ * @param is The input stream to read from.
+ * @param enemy The enemy object to deserialize into.
+ * @return The modified input stream.
+ * @throws std::runtime_error if any required data cannot be read or if the behavior type is unknown.
+ */
 std::istream& operator>>(std::istream& is, Enemy& enemy) {
-    // Read the `line` property
+    // Read the line property
     if (!(is >> enemy.line)) {
         throw std::runtime_error("Failed to read enemy line");
     }
@@ -112,7 +179,7 @@ std::istream& operator>>(std::istream& is, Enemy& enemy) {
         throw std::runtime_error("Failed to read outline thickness");
     }
 
-    // Set the shape properties using the dot operator
+    // Set the shape properties
     sf::RectangleShape& shape = enemy.getShape();
     shape.setPosition(position);
     shape.setSize(size);
@@ -144,4 +211,5 @@ std::istream& operator>>(std::istream& is, Enemy& enemy) {
 
     return is;
 }
+
 
