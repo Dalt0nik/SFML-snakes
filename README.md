@@ -20,6 +20,7 @@ If you run into snake, game is over
 ### Controls
 
 `AWSD` - Jump in any direction
+
 `Space` - Hide all snakes (save them into a file) / Show all snakes (load them from file)
 
 
