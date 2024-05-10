@@ -86,18 +86,23 @@ void Game::update()
  */
 void Game::updateInput()
 {
-    static sf::Clock clock;
-    sf::Time elapsedTime = clock.getElapsedTime();
+    static sf::Clock clock; // Clock to measure time since last key press
+    sf::Time elapsedTime = clock.getElapsedTime(); // Time since last key press
 
-    if (elapsedTime.asMilliseconds() > 500)
-    {
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-        {
-            this->pause = !this->pause;
-            this->pause ? this->showEnemies() : this->hideEnemies();
-            clock.restart();
+    // Only process key press if at least 500 milliseconds have passed
+    if (elapsedTime.asMilliseconds() > 500) {
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+            if (this->pause)
+                this->showEnemies();
+            else
+                this->hideEnemies();
+
+            this->pause = !(this->pause);
+
+            clock.restart(); // Reset the clock
         }
     }
+
 }
 
 /**
